@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)">
+<meta name="author" content="Laux">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@laux.es">
+<meta name="twitter:title" content="Shot 2 - El viaje de las interfaces nativas">
+<meta name="twitter:description" content="Distintos dispositivos. Por Jeremy Keith   La batalla por la interfaz sigue vigente. Cada plataforma ofrece su interfaz y nos vuelve adictos a su disposición, arquitectura y elementos. Hace dos días un amigo me enseño un proyecto multiplataforma y me mostró la misma vista en Windows Phone y en Android. Acostumbrado">
+<meta name="twitter:creator" content="Ángel M Miguel">
+<meta name="twitter:image:src" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laux">
+<meta property="og:description" content="Distintos dispositivos. Por Jeremy Keith   La batalla por la interfaz sigue vigente. Cada plataforma ofrece su interfaz y nos vuelve adictos a su disposición, arquitectura y elementos. Hace dos días un amigo me enseño un proyecto multiplataforma y me mostró la misma vista en Windows Phone y en Android. Acostumbrado">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="Laux">
+
+<link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3F2%3Fv=b7a504fe2e.css" />
+<link rel="stylesheet" href="../assets/css/zenburn.css%3Fv=b7a504fe2e.css">
+<script src="../assets/js/highlight.pack.js%3Fv=b7a504fe2e"></script>
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png%3Fv=b7a504fe2e" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-196x196.png%3Fv=b7a504fe2e" sizes="196x196" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png%3Fv=b7a504fe2e" sizes="96x96" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png%3Fv=b7a504fe2e" sizes="32x32" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png%3Fv=b7a504fe2e" sizes="16x16" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-128.png%3Fv=b7a504fe2e" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=b7a504fe2e" />
+<meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png?v=b7a504fe2e" />
+<meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png?v=b7a504fe2e" />
+<meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png?v=b7a504fe2e" />
+<meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png?v=b7a504fe2e" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>Shot 2 - El viaje de las interfaces nativas | Laux</title>
+
+<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+
+    <meta property="og:site_name" content="Laux" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Shot 2 - El viaje de las interfaces nativas" />
+    <meta property="og:description" content="Distintos dispositivos. Por Jeremy Keith   La batalla por la interfaz sigue vigente. Cada plataforma ofrece su interfaz y nos vuelve adictos a su disposición, arquitectura y elementos. Hace dos días un amigo me enseño un proyecto multiplataforma y me mostró la misma vista en Windows Phone y en Android. Acostumbrado" />
+    <meta property="og:url" content="http://laux.es/shot-2-viaje-interfaces-nativas/" />
+    <meta property="article:published_time" content="2013-09-19T12:00:04.000Z" />
+    <meta property="article:modified_time" content="2014-09-25T19:58:34.515Z" />
+    <meta property="article:tag" content="Interfaces" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Shot 2 - El viaje de las interfaces nativas" />
+    <meta name="twitter:description" content="Distintos dispositivos. Por Jeremy Keith   La batalla por la interfaz sigue vigente. Cada plataforma ofrece su interfaz y nos vuelve adictos a su disposición, arquitectura y elementos. Hace dos días un amigo me enseño un proyecto multiplataforma y me mostró la misma vista en Windows Phone y en Android. Acostumbrado" />
+    <meta name="twitter:url" content="http://laux.es/shot-2-viaje-interfaces-nativas/" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Laux",
+    "author": {
+        "@type": "Person",
+        "name": "Ángel M Miguel",
+        "image": "//www.gravatar.com/avatar/73f55f92af57327a909da02fd88ac4d0?d=404&s=250",
+        "url": "http://laux.es/author/angel-m-miguel/"
+    },
+    "headline": "Shot 2 - El viaje de las interfaces nativas",
+    "url": "http://laux.es/shot-2-viaje-interfaces-nativas/",
+    "datePublished": "2013-09-19T12:00:04.000Z",
+    "dateModified": "2014-09-25T19:58:34.515Z",
+    "keywords": "Interfaces",
+    "description": "Distintos dispositivos. Por Jeremy Keith   La batalla por la interfaz sigue vigente. Cada plataforma ofrece su interfaz y nos vuelve adictos a su disposición, arquitectura y elementos. Hace dos días un amigo me enseño un proyecto multiplataforma y me mostró la misma vista en Windows Phone y en Android. Acostumbrado"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Laux" href="../rss/" />
+</head>
+
+<body class="post-template tag-interfaces">
+<div class="wrapper">
+
+<nav class="nav fixed">
+    <a style="border:none;" id="logo" href="../"><h1>Laux</h1></a>
+    <ul class="nav-primary">
+        <li><a href="../">Home</a></li>
+        <li><a class="ux-link" href="../tag/ux">UX</a></li>
+        <li><a class="ror-link" href="../tag/ruby">Ruby</a></li>
+        <li><a class="android-link" href="../tag/android">Android</a></li>
+        <li><a class="git-link" href="../tag/git">Git</a></li>
+        <li><a href="../about">Sobre mí</a></li>
+    </ul>
+</nav>
+
+
+<article class="art simple post tag-interfaces">
+
+    <header class="art-header">
+        <div class="art-header-inner">
+            <h2 class="art-title">Shot 2 - El viaje de las interfaces nativas</h2>
+            <time class="art-time">19 - 09 - 2013</time>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+
+            <p><img src="../content/images/2014/Sep/devices.jpg" alt="" /></p>
+
+<p class="img-caption">Distintos dispositivos. Por <a href="http://www.flickr.com/photos/adactio/">Jeremy Keith</a>
+</p>
+
+<p><strong>La batalla por la interfaz sigue vigente</strong>. Cada plataforma ofrece su interfaz y nos vuelve adictos a su disposición, arquitectura y elementos.</p>
+
+<p>Hace dos días un amigo me enseño un proyecto multiplataforma y me mostró la misma vista en Windows Phone y en Android. Acostumbrado a Android, su navegación por Tabs hizo que de un vistazo, supiera la estructura de la aplicación. En cambio, en Windows Phone y su navegación Panorama, tuve que dar dos vueltas para ser consciente de la misma estructura.</p>
+
+<p>De ninguna manera se puede afirmar que una es mejor que otra, pero en mi caso, puedo afirmar que <strong>mi curva de aprendizaje para esa aplicación en Android fue el doble de rápida que en Windows Phone</strong>.</p>
+
+<h1 id="interfacesnativas">Interfaces nativas</h1>
+
+<p>Ya tuvimos un debate en el grupo de UXers en Facebook sobre el uso de elementos nativos o unos universales (<a href="https://www.facebook.com/groups/uxers.es/permalink/150843398430961/" title="Interfaz Universal contra Interfaz propia">Interfaz universal contra interfaz propia</a>).</p>
+
+<p>Todas las plataformas nos ofrecen guías para desarrollar y diseñar aplicaciones.<em>* La ventaja de seguirlas es que los usuarios aprenderán más rápido a utilizar la aplicación que con controles universales o propios de otra plataforma</em>*. Por supuesto, la curva de aprendizaje variará en función de la arquitectura de la aplicación.</p>
+
+<p>Por el contrario podemos pensar que para un usuario es mejor tener la misma interfaz en las distintas plataformas. De esta manera cuando pasemos de una a otra, el usuario no notará cambio alguno.</p>
+
+<p>Este punto de vista facilitaría al usuario el primer contacto con la aplicación en otra plataforma, pero cuando se habituara al estilo de la nueva plataforma, la aplicación ya no le sería tan intuitiva como antes. <strong>Por ello es bueno que aprovechemos las guías y controles de cada plataforma sin perder la esencia de la aplicación</strong>.</p>
+
+<h1 id="recursos">Recursos</h1>
+
+<p>Os dejo el enlace de las distintas guías de desarrollo:</p>
+
+<ul>
+<li><a href="http://developer.android.com/guide/components/" title="Guía de desarrollo de Android">Android</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff402535(v=vs.105).aspx" title="Guía de desarrollo de Windows Phone">Windows Phone</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/userexperience/conceptual/applehiguidelines/Intro/Intro.html" title="Guía de desarrollo de Apple">Apple</a></li>
+<li><a href="http://docs.blackberry.com/en/developers/?userType=21" title="Guía de desarrollo de Blackberry">Blackberry</a></li>
+<li><a href="https://developer.mozilla.org/es/docs/Mozilla/Firefox_OS" title="Guía de desarrollo de Firefox OS">Firefox OS</a></li>
+</ul>
+            <div class="art-tags">
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+<footer class="footer">
+    <div class="back-to-top"><a href="">Ir arriba</a></div>
+    <!-- <div class="footer-nav"><p></p></div> -->
+    <div class="psi">&Psi;</div>
+    <aside class="offsite-links">
+        <a class="twitter-link" href="https://twitter.com/laux_es">Twitter</a> /
+        <a class="github-link" href="https://github.com/Angelmmiguel/">Github</a> /
+    		<a class="linkedin-link" href="https://laux.es/shot-2-viaje-interfaces-nativas/es.linkedin.com/pub/ángel-maría-de-miguel-meana/60/974/9b6/">Linkedin</a> /
+        <a class="rss-link" href="../rss.1">RSS</a>
+
+    </aside>
+</footer>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/fittext.js%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/app.js%3F2%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/respond.min.js%3Fv=b7a504fe2e"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47913999-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    (function(f,b){
+        var c;
+        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+        f._hjSettings={hjid:46232, hjsv:4};
+        c=b.createElement("script");c.async=1;
+        c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+        b.getElementsByTagName("head")[0].appendChild(c);
+    })(window,document);
+</script>
+<!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+
+    addTags('<a href="../tag/interfaces/">Interfaces</a>');
+
+  </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)">
+<meta name="author" content="Laux">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@laux.es">
+<meta name="twitter:title" content="Comparación de Arrays con Ruby">
+<meta name="twitter:description" content="Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores. Comparar con valores Utilizamos la función include?. Preguntamos al array si este incluye un elemento retornando como respuesta true">
+<meta name="twitter:creator" content="Ángel M Miguel">
+<meta name="twitter:image:src" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laux">
+<meta property="og:description" content="Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores. Comparar con valores Utilizamos la función include?. Preguntamos al array si este incluye un elemento retornando como respuesta true">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="Laux">
+
+<link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3F2%3Fv=b7a504fe2e.css" />
+<link rel="stylesheet" href="../assets/css/zenburn.css%3Fv=b7a504fe2e.css">
+<script src="../assets/js/highlight.pack.js%3Fv=b7a504fe2e"></script>
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png%3Fv=b7a504fe2e" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-196x196.png%3Fv=b7a504fe2e" sizes="196x196" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png%3Fv=b7a504fe2e" sizes="96x96" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png%3Fv=b7a504fe2e" sizes="32x32" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png%3Fv=b7a504fe2e" sizes="16x16" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-128.png%3Fv=b7a504fe2e" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=b7a504fe2e" />
+<meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png?v=b7a504fe2e" />
+<meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png?v=b7a504fe2e" />
+<meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png?v=b7a504fe2e" />
+<meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png?v=b7a504fe2e" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>Comparación de Arrays con Ruby | Laux</title>
+
+<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+
+    <meta property="og:site_name" content="Laux" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Comparación de Arrays con Ruby" />
+    <meta property="og:description" content="Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores. Comparar con valores Utilizamos la función include?. Preguntamos al array si este incluye un elemento retornando como respuesta true" />
+    <meta property="og:url" content="http://laux.es/comparacion-de-arrays-con-ruby/" />
+    <meta property="article:published_time" content="2014-08-29T22:41:23.322Z" />
+    <meta property="article:modified_time" content="2014-12-13T13:35:26.049Z" />
+    <meta property="article:tag" content="Ruby" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Comparación de Arrays con Ruby" />
+    <meta name="twitter:description" content="Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores. Comparar con valores Utilizamos la función include?. Preguntamos al array si este incluye un elemento retornando como respuesta true" />
+    <meta name="twitter:url" content="http://laux.es/comparacion-de-arrays-con-ruby/" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Laux",
+    "author": {
+        "@type": "Person",
+        "name": "Ángel M Miguel",
+        "image": "//www.gravatar.com/avatar/73f55f92af57327a909da02fd88ac4d0?d=404&s=250",
+        "url": "http://laux.es/author/angel-m-miguel/"
+    },
+    "headline": "Comparación de Arrays con Ruby",
+    "url": "http://laux.es/comparacion-de-arrays-con-ruby/",
+    "datePublished": "2014-08-29T22:41:23.322Z",
+    "dateModified": "2014-12-13T13:35:26.049Z",
+    "keywords": "Ruby",
+    "description": "Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores. Comparar con valores Utilizamos la función include?. Preguntamos al array si este incluye un elemento retornando como respuesta true"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Laux" href="../rss/" />
+</head>
+
+<body class="post-template tag-ruby">
+<div class="wrapper">
+
+<nav class="nav fixed">
+    <a style="border:none;" id="logo" href="../"><h1>Laux</h1></a>
+    <ul class="nav-primary">
+        <li><a href="../">Home</a></li>
+        <li><a class="ux-link" href="../tag/ux">UX</a></li>
+        <li><a class="ror-link" href="../tag/ruby">Ruby</a></li>
+        <li><a class="android-link" href="../tag/android">Android</a></li>
+        <li><a class="git-link" href="../tag/git">Git</a></li>
+        <li><a href="../about">Sobre mí</a></li>
+    </ul>
+</nav>
+
+
+<article class="art simple post tag-ruby">
+
+    <header class="art-header">
+        <div class="art-header-inner">
+            <h2 class="art-title">Comparación de Arrays con Ruby</h2>
+            <time class="art-time">30 - 08 - 2014</time>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+
+            <p>Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores.</p>
+
+<h1 id="compararconvalores">Comparar con valores</h1>
+
+<p>Utilizamos la función <em>include?</em>. Preguntamos al array si este incluye un elemento retornando como respuesta <em>true</em> o <em>false</em>.</p>
+
+<pre><code>a = ["a","b","c"]
+a.include? "a"         # true
+</code></pre>
+
+<p>Existen otras opciones como utilizar la función <em>index</em>. Si el valor retornado es nil es que el valor no se encuentra en el array</p>
+
+<pre><code>a = ["a","b","c"]
+a.index? "z"         # nil
+</code></pre>
+
+<p>Esta manera es menos óptima que la anterior, pero también puede resultar útil en determinadas ocasiones.</p>
+
+<h1 id="dosarrays">Dos arrays</h1>
+
+<p>En el caso de querer comparar dos arrays la función a utilizar no es tan directa. Para compararlos vamos a aprovechar el uso de operadores básicos y binarios.</p>
+
+<h2 id="coincidenciadealgnvalor">Coincidencia de algún valor</h2>
+
+<p>Si queremos comprobar si algún valor de un array está contenido en otro, podemos utilizar el operador AND de array:</p>
+
+<pre><code>A = ["a","b","c"]
+B = ["c","d","e"]
+C = A &amp; B
+# C = ["c"]
+</code></pre>
+
+<p>Podemos aprovechar esto para comparar:</p>
+
+<pre><code>C.empty?
+# true si coincide algún valor
+</code></pre>
+
+<h2 id="inclusindeunarrayenotro">Inclusión de un array en otro</h2>
+
+<p>Si queremos comprobar que todos los valores de un array están en incluidos en otro, utilizamos el operador resta de array.</p>
+
+<p>En este caso, vamos a comparar si el array <em>A</em> está incluído en <em>B</em>:</p>
+
+<pre><code>A = ["a","b","c"]
+B = ["c","d","e"]
+
+(B - A).empty?
+# true si a está incluido
+</code></pre>
+
+<p>Como en el caso anterior, podemos utilizar el operador AND:</p>
+
+<pre><code>(A &amp; B).size == A.size
+# true si a está incluido
+</code></pre>
+            <div class="art-tags">
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+<footer class="footer">
+    <div class="back-to-top"><a href="">Ir arriba</a></div>
+    <!-- <div class="footer-nav"><p></p></div> -->
+    <div class="psi">&Psi;</div>
+    <aside class="offsite-links">
+        <a class="twitter-link" href="https://twitter.com/laux_es">Twitter</a> /
+        <a class="github-link" href="https://github.com/Angelmmiguel/">Github</a> /
+    		<a class="linkedin-link" href="https://laux.es/comparacion-de-arrays-con-ruby/es.linkedin.com/pub/ángel-maría-de-miguel-meana/60/974/9b6/">Linkedin</a> /
+        <a class="rss-link" href="../rss.1">RSS</a>
+
+    </aside>
+</footer>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/fittext.js%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/app.js%3F2%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/respond.min.js%3Fv=b7a504fe2e"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47913999-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    (function(f,b){
+        var c;
+        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+        f._hjSettings={hjid:46232, hjsv:4};
+        c=b.createElement("script");c.async=1;
+        c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+        b.getElementsByTagName("head")[0].appendChild(c);
+    })(window,document);
+</script>
+<!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+
+    addTags('<a href="../tag/ruby/">Ruby</a>');
+
+  </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

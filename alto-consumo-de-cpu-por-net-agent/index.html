@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)">
+<meta name="author" content="Laux">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@laux.es">
+<meta name="twitter:title" content="Alto consumo de CPU por net.agent">
+<meta name="twitter:description" content="Antes al conectarme a mi Raspberry Pi con Raspbian observé que la carga del sistema era superior a 1 y que el consumo de CPU era demasiado alto. Al echar un vistazo con comando top, había un proceso que estaba consumiendo casi todo el sistema: net.agent. Interfaz local El">
+<meta name="twitter:creator" content="Ángel M Miguel">
+<meta name="twitter:image:src" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laux">
+<meta property="og:description" content="Antes al conectarme a mi Raspberry Pi con Raspbian observé que la carga del sistema era superior a 1 y que el consumo de CPU era demasiado alto. Al echar un vistazo con comando top, había un proceso que estaba consumiendo casi todo el sistema: net.agent. Interfaz local El">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="Laux">
+
+<link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3F2%3Fv=b7a504fe2e.css" />
+<link rel="stylesheet" href="../assets/css/zenburn.css%3Fv=b7a504fe2e.css">
+<script src="../assets/js/highlight.pack.js%3Fv=b7a504fe2e"></script>
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png%3Fv=b7a504fe2e" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-196x196.png%3Fv=b7a504fe2e" sizes="196x196" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png%3Fv=b7a504fe2e" sizes="96x96" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png%3Fv=b7a504fe2e" sizes="32x32" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png%3Fv=b7a504fe2e" sizes="16x16" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-128.png%3Fv=b7a504fe2e" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=b7a504fe2e" />
+<meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png?v=b7a504fe2e" />
+<meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png?v=b7a504fe2e" />
+<meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png?v=b7a504fe2e" />
+<meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png?v=b7a504fe2e" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>Alto consumo de CPU por net.agent | Laux</title>
+
+<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+
+    <meta property="og:site_name" content="Laux" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Alto consumo de CPU por net.agent" />
+    <meta property="og:description" content="La salud de un sistema Linux es importante y una carga alta provoca lentitud a la hora de ejecutar programas o servicios. Net.agent puede ser un problema" />
+    <meta property="og:url" content="http://laux.es/alto-consumo-de-cpu-por-net-agent/" />
+    <meta property="article:published_time" content="2014-12-29T22:14:22.754Z" />
+    <meta property="article:modified_time" content="2015-01-17T17:47:26.439Z" />
+    <meta property="article:tag" content="Raspberry Pi" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Alto consumo de CPU por net.agent" />
+    <meta name="twitter:description" content="La salud de un sistema Linux es importante y una carga alta provoca lentitud a la hora de ejecutar programas o servicios. Net.agent puede ser un problema" />
+    <meta name="twitter:url" content="http://laux.es/alto-consumo-de-cpu-por-net-agent/" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Laux",
+    "author": {
+        "@type": "Person",
+        "name": "Ángel M Miguel",
+        "image": "//www.gravatar.com/avatar/73f55f92af57327a909da02fd88ac4d0?d=404&s=250",
+        "url": "http://laux.es/author/angel-m-miguel/"
+    },
+    "headline": "Alto consumo de CPU por net.agent",
+    "url": "http://laux.es/alto-consumo-de-cpu-por-net-agent/",
+    "datePublished": "2014-12-29T22:14:22.754Z",
+    "dateModified": "2015-01-17T17:47:26.439Z",
+    "keywords": "Raspberry Pi",
+    "description": "La salud de un sistema Linux es importante y una carga alta provoca lentitud a la hora de ejecutar programas o servicios. Net.agent puede ser un problema"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Laux" href="../rss/" />
+</head>
+
+<body class="post-template tag-raspberry-pi">
+<div class="wrapper">
+
+<nav class="nav fixed">
+    <a style="border:none;" id="logo" href="../"><h1>Laux</h1></a>
+    <ul class="nav-primary">
+        <li><a href="../">Home</a></li>
+        <li><a class="ux-link" href="../tag/ux">UX</a></li>
+        <li><a class="ror-link" href="../tag/ruby">Ruby</a></li>
+        <li><a class="android-link" href="../tag/android">Android</a></li>
+        <li><a class="git-link" href="../tag/git">Git</a></li>
+        <li><a href="../about">Sobre mí</a></li>
+    </ul>
+</nav>
+
+
+<article class="art simple post tag-raspberry-pi">
+
+    <header class="art-header">
+        <div class="art-header-inner">
+            <h2 class="art-title">Alto consumo de CPU por net.agent</h2>
+            <time class="art-time">29 - 12 - 2014</time>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+
+            <p>Antes al conectarme a mi <a href="http://www.raspberrypi.org/">Raspberry Pi</a> con <a href="http://www.raspbian.org/">Raspbian</a> observé que la carga del sistema era superior a 1 y que el consumo de CPU era demasiado alto.</p>
+
+<p>Al echar un vistazo con comando <strong>top</strong>, había un proceso que estaba consumiendo casi todo el sistema: <strong>net.agent</strong>.</p>
+
+<h1 id="interfazlocal">Interfaz local</h1>
+
+<p>El problema era tan simple como no haber iniciado la interfaz local <strong>(lo)</strong> del sistema. Podeis comprobar si la teneis activa con el comando:</p>
+
+<pre><code>ifconfig | grep -A 6 lo
+</code></pre>
+
+<p>Para activarla basta con ejecutar con permisos de superusuario:</p>
+
+<pre><code>ifup lo
+</code></pre>
+
+<p>Solo queda automatizar el inicio de la interfaz local al encender la Raspberry. Editamos el fichero <em>/etc/network/interfaces</em> con permisos de superusuario y agregamos las siguientes línea:</p>
+
+<pre><code>auto lo
+iface lo inet loopback
+</code></pre>
+            <div class="art-tags">
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+<footer class="footer">
+    <div class="back-to-top"><a href="">Ir arriba</a></div>
+    <!-- <div class="footer-nav"><p></p></div> -->
+    <div class="psi">&Psi;</div>
+    <aside class="offsite-links">
+        <a class="twitter-link" href="https://twitter.com/laux_es">Twitter</a> /
+        <a class="github-link" href="https://github.com/Angelmmiguel/">Github</a> /
+    		<a class="linkedin-link" href="https://laux.es/alto-consumo-de-cpu-por-net-agent/es.linkedin.com/pub/ángel-maría-de-miguel-meana/60/974/9b6/">Linkedin</a> /
+        <a class="rss-link" href="../rss.1">RSS</a>
+
+    </aside>
+</footer>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/fittext.js%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/app.js%3F2%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/respond.min.js%3Fv=b7a504fe2e"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47913999-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    (function(f,b){
+        var c;
+        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+        f._hjSettings={hjid:46232, hjsv:4};
+        c=b.createElement("script");c.async=1;
+        c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+        b.getElementsByTagName("head")[0].appendChild(c);
+    })(window,document);
+</script>
+<!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+
+    addTags('<a href="../tag/raspberry-pi/">Raspberry Pi</a>');
+
+  </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

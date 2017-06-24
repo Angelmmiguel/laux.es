@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)">
+<meta name="author" content="Laux">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@laux.es">
+<meta name="twitter:title" content="Un pequeño detalle de windows 8">
+<meta name="twitter:description" content="Hace dos días instale windows 8 en mi PC. Poco a poco voy analizando las distintas opciones y mejoras. Al principio ha sido un cambio grande, el scroll horizontal, los tiles y el excesivo diseño flat han hecho que el primer día con windows 8 fuera complicado. Hoy, un poco">
+<meta name="twitter:creator" content="Ángel M Miguel">
+<meta name="twitter:image:src" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laux">
+<meta property="og:description" content="Hace dos días instale windows 8 en mi PC. Poco a poco voy analizando las distintas opciones y mejoras. Al principio ha sido un cambio grande, el scroll horizontal, los tiles y el excesivo diseño flat han hecho que el primer día con windows 8 fuera complicado. Hoy, un poco">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="Laux">
+
+<link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3F2%3Fv=b7a504fe2e.css" />
+<link rel="stylesheet" href="../assets/css/zenburn.css%3Fv=b7a504fe2e.css">
+<script src="../assets/js/highlight.pack.js%3Fv=b7a504fe2e"></script>
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png%3Fv=b7a504fe2e" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-196x196.png%3Fv=b7a504fe2e" sizes="196x196" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png%3Fv=b7a504fe2e" sizes="96x96" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png%3Fv=b7a504fe2e" sizes="32x32" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png%3Fv=b7a504fe2e" sizes="16x16" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-128.png%3Fv=b7a504fe2e" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=b7a504fe2e" />
+<meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png?v=b7a504fe2e" />
+<meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png?v=b7a504fe2e" />
+<meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png?v=b7a504fe2e" />
+<meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png?v=b7a504fe2e" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>Un pequeño detalle de windows 8 | Laux</title>
+
+<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+
+    <meta property="og:site_name" content="Laux" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Un pequeño detalle de windows 8" />
+    <meta property="og:description" content="Hace dos días instale windows 8 en mi PC. Poco a poco voy analizando las distintas opciones y mejoras. Al principio ha sido un cambio grande, el scroll horizontal, los tiles y el excesivo diseño flat han hecho que el primer día con windows 8 fuera complicado. Hoy, un poco" />
+    <meta property="og:url" content="http://laux.es/pequeno-detalle-windows-8/" />
+    <meta property="article:published_time" content="2013-06-24T11:09:22.000Z" />
+    <meta property="article:modified_time" content="2014-09-27T21:19:06.672Z" />
+    <meta property="article:tag" content="Interfaces" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Un pequeño detalle de windows 8" />
+    <meta name="twitter:description" content="Hace dos días instale windows 8 en mi PC. Poco a poco voy analizando las distintas opciones y mejoras. Al principio ha sido un cambio grande, el scroll horizontal, los tiles y el excesivo diseño flat han hecho que el primer día con windows 8 fuera complicado. Hoy, un poco" />
+    <meta name="twitter:url" content="http://laux.es/pequeno-detalle-windows-8/" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Laux",
+    "author": {
+        "@type": "Person",
+        "name": "Ángel M Miguel",
+        "image": "//www.gravatar.com/avatar/73f55f92af57327a909da02fd88ac4d0?d=404&s=250",
+        "url": "http://laux.es/author/angel-m-miguel/"
+    },
+    "headline": "Un pequeño detalle de windows 8",
+    "url": "http://laux.es/pequeno-detalle-windows-8/",
+    "datePublished": "2013-06-24T11:09:22.000Z",
+    "dateModified": "2014-09-27T21:19:06.672Z",
+    "keywords": "Interfaces",
+    "description": "Hace dos días instale windows 8 en mi PC. Poco a poco voy analizando las distintas opciones y mejoras. Al principio ha sido un cambio grande, el scroll horizontal, los tiles y el excesivo diseño flat han hecho que el primer día con windows 8 fuera complicado. Hoy, un poco"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Laux" href="../rss/" />
+</head>
+
+<body class="post-template tag-interfaces">
+<div class="wrapper">
+
+<nav class="nav fixed">
+    <a style="border:none;" id="logo" href="../"><h1>Laux</h1></a>
+    <ul class="nav-primary">
+        <li><a href="../">Home</a></li>
+        <li><a class="ux-link" href="../tag/ux">UX</a></li>
+        <li><a class="ror-link" href="../tag/ruby">Ruby</a></li>
+        <li><a class="android-link" href="../tag/android">Android</a></li>
+        <li><a class="git-link" href="../tag/git">Git</a></li>
+        <li><a href="../about">Sobre mí</a></li>
+    </ul>
+</nav>
+
+
+<article class="art simple post tag-interfaces">
+
+    <header class="art-header">
+        <div class="art-header-inner">
+            <h2 class="art-title">Un pequeño detalle de windows 8</h2>
+            <time class="art-time">24 - 06 - 2013</time>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+
+            <p>Hace dos días instale windows 8 en mi PC. Poco a poco voy analizando las distintas opciones y mejoras. Al principio ha sido un cambio grande, el scroll horizontal, los tiles y el excesivo diseño flat han hecho que el primer día con windows 8 fuera complicado.</p>
+
+<p>Hoy, un poco más asentado todo, he visto un detalle que me ha gustado mucho y creo que sería una gran idea para aplicar al diseño de nuestras webs y aplicaciones.</p>
+
+<h1 id="contraseasocultasomostradas">¿Contraseñas ocultas o mostradas?</h1>
+
+<p>El campo de contraseñas siempre ha sido un campo polémico. Tenemos su opción en el atributo type de la etiqueta input de HTML, pero, ¿es necesario ocultar la contraseña con asteriscos o círculos?.</p>
+
+<p>En inicios de sesión ocultamos la contraseña para evitar que usuarios cercanos la vean. En registros nos encontramos que al ocultar las contraseñas se nos pide que la reescribamos para evitar errores, lo cual agrega un campo más al formulario rompiendo la regla de oro de estos: <strong>utiliza solamente los campos necesarios</strong>.</p>
+
+<p>Una equivocación provoca más frustración que reescribir dos veces una contraseña, pero mostrar la contraseña eliminaría estos dos problemas. Entonces, ¿qué hacemos? ¿qué es mejor para el usuario?</p>
+
+<p>A continuación os comento las distintas alternativas que podemos tomar tanto en registros como en inicios de sesión.</p>
+
+<h1 id="pinterestregistro">Pinterest (Registro)</h1>
+
+<p>Pinterest elimina el campo "Reescribe tu contraseña" manteniendo oculto el campo "Contraseña". Como usuarios,  al ser la contraseña un campo importante es complicado equivocarnos. Además, la contraseña se puede recuperar, por lo que no es un elemento crítico que merezca una confirmación.</p>
+
+<p><img src="../content/images/2014/Sep/pinterest.jpg" alt="Formulario de registro en Pinterest" /></p>
+
+<p class="img-caption">Registro de <a href="https://pinterest.com/join/signup/Pinterest">Pinterest</a></p>
+
+<h1 id="facebookiniciodesesin">Facebook (Inicio de sesión)</h1>
+
+<p>La solución que ofrece Facebook al inicio de sesión (u ofrecía, porque he intentado hacer una captura a mi móvil y ya no aparece dicha opción) es que al equivocarte una vez en tus credenciales al iniciar sesión te aparece un cuadro para mostrar la contraseña, si lo marcas aparece y al desmarcarlo se oculta.</p>
+
+<p>Es una opción interesante y muy fácil de implementar. Le das la opción al usuario y este decide si ver que ha escrito para comprobar su contraseña.</p>
+
+<h1 id="windows8iniciodesesin">Windows 8 (Inicio de sesión)</h1>
+
+<p>A medida que escribes la contraseña para iniciar sesión aparece un icono (un ojo) a la derecha del campo. Mientras mantengas pulsado ese icono la contraseña será visible y al soltarlo se oculta.</p>
+
+<p>Ofreces la misma opción que Facebook, pero de una manera más natural, pues atiende a la pulsación y no al marcado del cuadro. Como contra, este icono es un poco ambiguo y puede no entenderse, en cambio, con Facebook, el texto "Mostrar contraseña" es explícito por lo que no hay lugar a duda.</p>
+
+<p><center><iframe width="560" height="315" src="https://www.youtube.com/embed/4HatNoPsDpk" frameborder="0" allowfullscreen></iframe></center></p>
+            <div class="art-tags">
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+<footer class="footer">
+    <div class="back-to-top"><a href="">Ir arriba</a></div>
+    <!-- <div class="footer-nav"><p></p></div> -->
+    <div class="psi">&Psi;</div>
+    <aside class="offsite-links">
+        <a class="twitter-link" href="https://twitter.com/laux_es">Twitter</a> /
+        <a class="github-link" href="https://github.com/Angelmmiguel/">Github</a> /
+    		<a class="linkedin-link" href="https://laux.es/pequeno-detalle-windows-8/es.linkedin.com/pub/ángel-maría-de-miguel-meana/60/974/9b6/">Linkedin</a> /
+        <a class="rss-link" href="../rss.1">RSS</a>
+
+    </aside>
+</footer>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/fittext.js%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/app.js%3F2%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/respond.min.js%3Fv=b7a504fe2e"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47913999-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    (function(f,b){
+        var c;
+        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+        f._hjSettings={hjid:46232, hjsv:4};
+        c=b.createElement("script");c.async=1;
+        c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+        b.getElementsByTagName("head")[0].appendChild(c);
+    })(window,document);
+</script>
+<!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+
+    addTags('<a href="../tag/interfaces/">Interfaces</a>');
+
+  </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+var isMobile;
+
+// Identify if visitor on mobile with lame sniffing to remove parallaxing title
+if( navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/BlackBerry/)
+){
+  isMobile = true;
+}
+
+function addTags(tags){
+
+	tags = tags.replace('<a', "<a onclick=\"ga('send', 'event', 'button', 'click', 'More posts tag button', 4);\"")
+
+	phrase = ['¿Te ha gustado el artículo? Puedes encontrar más similares en #.',
+						'¡Aquí no acaba la cosa!, puedes ver más artículos parecidos en #.',
+						'Pss, pss. Quizás te parezca interesante ver más artículos como este. Puedes seguir leyendo algunos más en #, pero yo no te he dicho nada.',
+						'¿Aún con ganas de seguir leyendo?, te dejo unos cuantos artículos más por #.',
+						'Ambos sabemos que Ángel es un poco perezoso para escribir, pero puedes ver más artículos similares en #.',
+						'¿Con ganas de seguir leyendo?, no seré yo quien te pare los pies. En # tienes más artículos similares.'];
+
+	index = Math.floor(Math.random() * phrase.length);
+
+	image = '<a href="http://thenounproject.com/Luis/" title="Icono creado por Luis Prado"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="62.837px" viewBox="-19.895 -12.4327 100.0 84.82995" enable-background="new -24.895 -6.149 100 62.837" xml:space="preserve"><g id="Layer_2"><path d="M35.389,6.576c-3.521,0.027-6.385-2.808-6.389-6.328c-0.016-3.512,2.818-6.377,6.338-6.396   c3.513-0.012,6.371,2.824,6.393,6.336C41.745,3.705,38.911,6.568,35.389,6.576z"/></g><polygon points="65.982,35.025 62.173,22.723 63.895,22.188 67.705,34.491 "/><polygon points="70.842,36.602 67.03,25.164 68.738,24.598 72.55,36.033 "/><path d="M64.878,44.055l-7.896-27.149h-3.219l0.043,0.039l-2.322,2.332l2.322,2.345l-2.35,2.338l2.35,2.357l-2.299,2.309  l2.299,2.297l-2.35,2.364l2.35,2.342l-2.299,2.326l2.299,2.304l-2.196,2.185c-0.334,0.103-0.581,0.305-0.614,0.657  c-0.043,0.457,0.294,0.867,0.757,0.912c17.705,1.599,21.691,4.19,21.691,4.973c0,2.11-16.33,6.038-47.549,6.038  c-3.796,0-7.497-0.057-11.044-0.183c-0.486,0.043-0.846,0.344-0.863,0.803c-0.014,0.457,0.344,0.847,0.805,0.862  c3.561,0.124,7.279,0.183,11.101,0.183c19.784,0,49.212-2.046,49.212-7.703C75.109,46.988,71.63,45.35,64.878,44.055z"/><path d="M-2.924,25.174l6.128,2.522c1.805-3.114,4.061-5.766,6.865-7.048c3.139-1.437,6.597-2.165,10.288-2.165  c3.716,0,7.308,0.735,10.539,1.77c1.867-3.774,3.825-7.371,5.718-10.175c-2.944-3.042-8.899-2.913-10.675,2.663l-1.578,3.524  l-7.536-4.913V0.432L8.246,0.355L2.004-5.518v16.522l4.939,4.654l-12.913-3.763c-1.46-0.428-3.053,0.08-3.995,1.288l-14.134,18.068  c-1.278,1.626-0.986,3.983,0.64,5.257c0.685,0.541,1.5,0.797,2.305,0.797c1.114,0,2.211-0.495,2.95-1.44l8.154-10.424v17.654  c0,5.002,7.12,4.975,7.12-0.092C-2.924,38.312-2.924,25.174-2.924,25.174z"/><path d="M41.368,7.49c-2.595,2.408-5.629,7.658-8.493,13.45c5.105,1.895,9.021,4.374,10.679,5.501L48.72,5.044  C48.559,5.018,44.658,4.433,41.368,7.49z"/><g><path d="M-1.005,46.547c0,0,3.298-20.159,11.902-24.098c14.949-6.834,32.335,6.185,32.335,6.185l-4.465,17.953L-1.005,46.547z"/></g></svg></a>';
+
+	$('.art-tags').html(image + '<div><h3>Que nada te impida seguir leyendo ;)</h3><p>' + phrase[index].replace('#', tags) + '</p></div>');
+
+}
+
+$(document).ready(function() {
+
+  // Global vars
+  var $artHeaderInner = $('.art-header-inner');
+  var $artHeader = $('.art-header');
+  var $artTitle = $('.art-title');
+  var $artSubtitle = $('.art-subtitle');
+  var $artTime = $('.art-time');
+  var artTitleFontSize = parseInt($artTitle.css('font-size'));
+  var $nav = $('.nav');
+  var windowScroll;
+
+	// Link to top of page without changing URL
+	$('.back-to-top a').click(function(e) {
+		e.preventDefault();
+		$(window).scrollTop(0);
+	})
+  
+	// Cover image of the header
+	var $postImage = $('img[alt="cover"]');
+	if ( $postImage.length ) {
+		var postImageURL = $postImage.attr('src');
+		$('.art-header').css('background-image','url(' + postImageURL + ')');
+		$('.art-header').css('background-size','100%');
+		
+		// Change color scheme to white
+		$('#logo h1').css('color','white');
+		$('.art-title').css('color','white');
+		$('.art-subtitle').css('color','white');
+		$('.art-time').css('color','white');
+		$('.nav-primary li a').css('color','white');
+		
+		// Add Text Shadows
+		$('.art-title').css('text-shadow','3px 3px 0 rgba(0,0,0,0.1), -1px -1px 0 rgba(0,0,0,0.1), 1px -1px 0 rgba(0,0,0,0.1), -1px 1px 0 rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1)');
+		$('.art-subtitle').css('text-shadow','3px 3px 0 rgba(0,0,0,0.1), -1px -1px 0 rgba(0,0,0,0.1), 1px -1px 0 rgba(0,0,0,0.1), -1px 1px 0 rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1)');
+		$('.art-time').css('text-shadow','3px 3px 0 rgba(0,0,0,0.1), -1px -1px 0 rgba(0,0,0,0.1), 1px -1px 0 rgba(0,0,0,0.1), -1px 1px 0 rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1)');
+		
+	}
+	$postImage.remove();
+	
+	// Subtitles
+	var $subtitle = $('span[id="subtitle"]');
+	if ( $subtitle.length ) {
+		var subtitleText = $('#subtitle').text();
+		$('.art-subtitle').html(subtitleText);
+		
+	}
+	$subtitle.remove();
+	
+	// Make punctuation smarter
+	jQuery.fn.smarten = (function() {
+	 
+	  function smartenNode(node) {
+		if (node.nodeType === 3) {
+		  node.data = node.data
+			.replace(/(^|[-\u2014/(\[{"\s])'/g, "$1\u2018")      // Opening singles
+			.replace(/'/g, "\u2019")                             // Closing singles & apostrophes
+			.replace(/(^|[-\u2014/(\[{\u2018\s])"/g, "$1\u201c") // Opening doubles
+			.replace(/"/g, "\u201d")                             // Closing doubles
+			.replace(/--/g, "\u2013")                            // En dashes
+			.replace(/---/g, "\u2014")                           // Em dashes
+			.replace(/\.{3}/g, "\u2026");                        // Ellipsis
+		} else if (node.nodeType === 1) {
+		  if (node = node.firstChild) do {
+			smartenNode(node);
+		  } while (node = node.nextSibling);
+		}
+	  }
+	 
+	  return function() {
+		return this.each(function(){
+		  smartenNode(this);
+		});
+	  };
+	 
+	}());
+	 
+	// Instantiation
+	$('article').smarten();
+
+});

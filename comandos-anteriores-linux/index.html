@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)">
+<meta name="author" content="Laux">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@laux.es">
+<meta name="twitter:title" content="Buscar comandos en el terminal de UNIX">
+<meta name="twitter:description" content="Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días? Búsqueda hacia atrás Uno de los comandos más útiles de UNIX es el llamado Reverse-i-search. Para ejecutarlo basta">
+<meta name="twitter:creator" content="Ángel M Miguel">
+<meta name="twitter:image:src" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laux">
+<meta property="og:description" content="Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días? Búsqueda hacia atrás Uno de los comandos más útiles de UNIX es el llamado Reverse-i-search. Para ejecutarlo basta">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="Laux">
+
+<link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3F2%3Fv=b7a504fe2e.css" />
+<link rel="stylesheet" href="../assets/css/zenburn.css%3Fv=b7a504fe2e.css">
+<script src="../assets/js/highlight.pack.js%3Fv=b7a504fe2e"></script>
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png%3Fv=b7a504fe2e" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-196x196.png%3Fv=b7a504fe2e" sizes="196x196" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png%3Fv=b7a504fe2e" sizes="96x96" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png%3Fv=b7a504fe2e" sizes="32x32" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png%3Fv=b7a504fe2e" sizes="16x16" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-128.png%3Fv=b7a504fe2e" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=b7a504fe2e" />
+<meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png?v=b7a504fe2e" />
+<meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png?v=b7a504fe2e" />
+<meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png?v=b7a504fe2e" />
+<meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png?v=b7a504fe2e" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>Buscar comandos en el terminal de UNIX | Laux</title>
+
+<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+
+    <meta property="og:site_name" content="Laux" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Buscar comandos en el terminal de UNIX" />
+    <meta property="og:description" content="Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &amp;#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días? Búsqueda hacia atrás Uno de los comandos más útiles de UNIX es el llamado Reverse-i-search. Para ejecutarlo basta" />
+    <meta property="og:url" content="http://laux.es/comandos-anteriores-linux/" />
+    <meta property="article:published_time" content="2014-10-06T20:16:00.000Z" />
+    <meta property="article:modified_time" content="2014-10-07T07:31:13.178Z" />
+    <meta property="article:tag" content="Linux" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Buscar comandos en el terminal de UNIX" />
+    <meta name="twitter:description" content="Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &amp;#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días? Búsqueda hacia atrás Uno de los comandos más útiles de UNIX es el llamado Reverse-i-search. Para ejecutarlo basta" />
+    <meta name="twitter:url" content="http://laux.es/comandos-anteriores-linux/" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Laux",
+    "author": {
+        "@type": "Person",
+        "name": "Ángel M Miguel",
+        "image": "//www.gravatar.com/avatar/73f55f92af57327a909da02fd88ac4d0?d=404&s=250",
+        "url": "http://laux.es/author/angel-m-miguel/"
+    },
+    "headline": "Buscar comandos en el terminal de UNIX",
+    "url": "http://laux.es/comandos-anteriores-linux/",
+    "datePublished": "2014-10-06T20:16:00.000Z",
+    "dateModified": "2014-10-07T07:31:13.178Z",
+    "keywords": "Linux",
+    "description": "Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &amp;#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días? Búsqueda hacia atrás Uno de los comandos más útiles de UNIX es el llamado Reverse-i-search. Para ejecutarlo basta"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Laux" href="../rss/" />
+</head>
+
+<body class="post-template tag-linux">
+<div class="wrapper">
+
+<nav class="nav fixed">
+    <a style="border:none;" id="logo" href="../"><h1>Laux</h1></a>
+    <ul class="nav-primary">
+        <li><a href="../">Home</a></li>
+        <li><a class="ux-link" href="../tag/ux">UX</a></li>
+        <li><a class="ror-link" href="../tag/ruby">Ruby</a></li>
+        <li><a class="android-link" href="../tag/android">Android</a></li>
+        <li><a class="git-link" href="../tag/git">Git</a></li>
+        <li><a href="../about">Sobre mí</a></li>
+    </ul>
+</nav>
+
+
+<article class="art simple post tag-linux">
+
+    <header class="art-header">
+        <div class="art-header-inner">
+            <h2 class="art-title">Buscar comandos en el terminal de UNIX</h2>
+            <time class="art-time">06 - 10 - 2014</time>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+
+            <p>Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días?</p>
+
+<h1 id="bsquedahaciaatrs">Búsqueda hacia atrás</h1>
+
+<p>Uno de los comandos más útiles de UNIX es el llamado <strong>Reverse-i-search</strong>. Para ejecutarlo basta con pulsar en CTRL + R en la consola, y empezar a introducir nuestro criterio de búsqueda.</p>
+
+<p>Veamoslo de manera práctica. Imaginemos que hemos ejecutado en el terminal los siguientes comandos, siendo el del final el último ejecutado:</p>
+
+<pre><code>#~ sudo service app restart
+#~ sudo service app2 restart
+#~ sudo service app3 restart
+#~ mv file bbb/
+#~ cat bbb/file
+#~ cat bbb/another_file
+#~ cd ~
+#~ mkdir ccc
+</code></pre>
+
+<p>Después del último comando, para llegar otra vez a <em>sudo service app restart</em>, necesitaríamos pulsar &#8593; 8 veces hasta llegar a la línea deseada.</p>
+
+<p>En cambio su pulsamos CTRL+R y comenzamos a escribir <em>"sudo"</em> obtenemos en la consola lo siguiente: </p>
+
+<p><img src="../content/images/2014/Oct/terminal.png" alt="Terminal de Mac OS al ejecutar Reverse-i-search" /></p>
+
+<p class="img-caption">Terminal de Mac OS al ejecutar Reverse-i-search</p>
+
+<p>Al buscar hacía arriba la primera coincidencia con <em>"sudo"</em> es <em>sudo service app3 restart</em>. No es nuestro objetivo, pero no hay ningún problema, al pulsar otra vez CTRL + R obtenemos la siguiente coincidencia: <em>sudo service app2 restart</em>. Como imagináis, otra vez más a CTRL + R y finalmente: </p>
+
+<p><img src="../content/images/2014/Oct/terminal2.png" alt="Terminal de Mac OS una vez encontrado el resultado que necesitamos" /></p>
+
+<p class="img-caption">Terminal de Mac OS una vez encontrado el resultado que necesitamos</p>
+
+<p>Una vez que hemos llegado al comando en cuestión tenemos dos opciones. Si queremos ejecutar directamente el comando pulsamos en ENTER. Por el contrario, si queremos el comando para modificarlo antes de ejecutarlo, pulsamos en &#8594;.</p>
+
+<h1 id="bsquedahacadelante">Búsqueda hacía delante</h1>
+
+<p>También se puede dar el caso de que nos hayamos pasado el comando que necesitamos. En este caso podemos parar la ejecución y volver a empezar, o podemos acudir a <strong>i-search</strong>.</p>
+
+<h2 id="preparamoselterreno">Preparamos el terreno</h2>
+
+<p>En la mayoría de los terminales será necesario configurar la consola para poder ejecutar el comando de búsqueda hacia delante (<strong>i-search</strong>). Para ello simplemente ejecutamos el siguiente comando: </p>
+
+<pre><code>stty -ixon
+</code></pre>
+
+<p>Si queréis más información sobre el por qué de esta necesidad, dirigios al siguiente enlace de <a href="http://stackoverflow.com/questions/17760474/reverse-intelligent-search-reverse-i-search-how-to-get-previous-result">StackOverflow</a>.</p>
+
+<h2 id="continuamos">Continuamos!</h2>
+
+<p>Ahora solo queda saber cómo activar dicho comando. Al igual que <strong>Reverse</strong>, tiene su propio atajo de teclado y es: CTRL + S. </p>
+
+<p>Al ejecutar este comando veremos como el terminal cambia el programa de <strong>Reverse-i-search</strong> a <strong>i-search</strong>. Ejecutando otra vez más CTRL + S comenzaremos a ir hacía delante en función de nuestro criterio de búsqueda.</p>
+
+<p><img src="../content/images/2014/Oct/terminal3.png" alt="Ejecución del comando i-search en el terminal de MAC" /></p>
+
+<p class="img-caption">Ejecución del comando i-search en el terminal de MAC</p>
+            <div class="art-tags">
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+<footer class="footer">
+    <div class="back-to-top"><a href="">Ir arriba</a></div>
+    <!-- <div class="footer-nav"><p></p></div> -->
+    <div class="psi">&Psi;</div>
+    <aside class="offsite-links">
+        <a class="twitter-link" href="https://twitter.com/laux_es">Twitter</a> /
+        <a class="github-link" href="https://github.com/Angelmmiguel/">Github</a> /
+    		<a class="linkedin-link" href="https://laux.es/comandos-anteriores-linux/es.linkedin.com/pub/ángel-maría-de-miguel-meana/60/974/9b6/">Linkedin</a> /
+        <a class="rss-link" href="../rss.1">RSS</a>
+
+    </aside>
+</footer>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/fittext.js%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/app.js%3F2%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/respond.min.js%3Fv=b7a504fe2e"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47913999-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    (function(f,b){
+        var c;
+        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+        f._hjSettings={hjid:46232, hjsv:4};
+        c=b.createElement("script");c.async=1;
+        c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+        b.getElementsByTagName("head")[0].appendChild(c);
+    })(window,document);
+</script>
+<!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+
+    addTags('<a href="../tag/linux/">Linux</a>');
+
+  </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Laux]]></title><description><![CDATA[UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)]]></description><link>http://laux.es/</link><generator>Ghost 0.7</generator><lastBuildDate>Tue, 21 Feb 2017 11:26:30 GMT</lastBuildDate><atom:link href="http://laux.es/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Antipublicidad]]></title><description><![CDATA[<p>Como cada mes de Enero, <a href="https://www.spotify.com/es/">Spotify</a> resume mi año musical. Siempre me gusta echar un vistazo atrás y ver qué he escuchado durante el año pasado. No soy un gran amante de la música, aunque si es cierto que siempre está presente en distintos momentos de mi día a día.</p>]]></description><link>http://laux.es/antipublicidad/</link><guid isPermaLink="false">f39c29be-edba-484c-98b7-91c4f0ec1f19</guid><category><![CDATA[UX]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Mon, 11 Jan 2016 13:59:00 GMT</pubDate><media:content url="http://laux.es/content/images/2016/01/final-share.png" medium="image"/><content:encoded><![CDATA[<img src="http://laux.es/content/images/2016/01/final-share.png" alt="Antipublicidad"><p>Como cada mes de Enero, <a href="https://www.spotify.com/es/">Spotify</a> resume mi año musical. Siempre me gusta echar un vistazo atrás y ver qué he escuchado durante el año pasado. No soy un gran amante de la música, aunque si es cierto que siempre está presente en distintos momentos de mi día a día.</p>
+
+<h1 id="antipublicidad">Antipublicidad</h1>
+
+<p><img src="http://laux.es/content/images/2016/01/generos.png" alt="Antipublicidad"></p>
+
+<p><strong>EDM, Rap, Pop</strong>... son los géneros musicales que más he escuchado en 2015. <em>Si os habéis preguntado como yo, qué es el género "EDM", cabe decir que <a href="http://www.dicelacancion.com/revista/musica-edm">no es un género músical</a> y viene de mi lista <a href="https://open.spotify.com/user/iangel2010/playlist/1w5PVgSySJQ1grUwpfSSnQ">Farming Code</a></em>.</p>
+
+<p>Salvando tendencias y redecillas musicales, respecto a los artistas he escuchado <strong>209 diferentes</strong> entre los cuales destacan:</p>
+
+<p><img src="http://laux.es/content/images/2016/01/artistas.png" alt="Antipublicidad"></p>
+
+<p>¿Algún rastro de reggaeton? ¿Algún rastro de cualquier género latino? Entonces, ¿por qué la gran mayoría los anuncios que Spotify me muestra son de listas, discos y artistas de Reggaeton? Tienen todos mis gustos musicales y son capaces de resumir mi año musical, pero <strong>no son capaces de encajar un anuncio que realmente me interese</strong>.</p>
+
+<p>¿O quizás si? Quitando los anuncios de reggaeton, Spotify suele anunciarme su servico Premium <strong>haciendo especial hincapié en que mejorando mi cuenta, eliminaré los anuncios</strong>. Esto me ha llevado a pensar que o bien el 90% de sus anunciantes son distribuidoras de este tipo de música o que <strong>realmente su "antipublicidad" busca mi suscripción a su servicio Premium</strong>.</p>]]></content:encoded></item><item><title><![CDATA[Eliminar Referrer Spam en Nginx y Analytics]]></title><description><![CDATA[Los ataques por referrer SPAM llenan nuestras analíticas de datos erróneos y consumen ancho de banda. Vamos a solucionarlo en NGINX y GAnalytics]]></description><link>http://laux.es/referrer-spam-nginx-ganalytics/</link><guid isPermaLink="false">faf92673-aa99-42fa-a268-efe25fe81c3f</guid><category><![CDATA[Nginx]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Wed, 22 Apr 2015 13:20:50 GMT</pubDate><content:encoded><![CDATA[<p>Para poneros en situación, el <em>Referrer</em> o Referencia es un campo de cabecera de una petición HTTP. Este campo indica la URL origen desde la cual se ha originado la solicitud. En otras palabras, es la dirección desde la cual la persona que visita tu página ha hecho click en el enlace que le ha llevado a esta. Para más información, podéis pasaros por la <a href="http://es.wikipedia.org/wiki/Referer_%28Cabecera_HTTP%29">Wikipedia</a>.</p>
+
+<p><img src="http://laux.es/content/images/2015/04/referencias_movil.png" alt="Captura de pantalla de la aplicación de Google Analytics mostrando las referencias"></p>
+
+<p class="img-caption">Referencias sospechosas en Google Analytics</p>
+
+<p>Hoy de paso por Google Analytics me he fijado que algunas referencias de otras webs eran un tanto sospechosas. Es raro que dominios como <strong>social-buttons o free-share-buttons</strong> se interesen por un blog de UX y desarrollo, así que con una búsqueda encontré de qué se trataba toda esta historia.</p>
+
+<h1 id="delrefererdelreferrerspamqugananconello"><del>Referer</del> Referrer SPAM. ¿Qué ganan con ello?</h1>
+
+<p>Muchas webs utilizan herramientas analíticas (como Google Analytics) a diario. Estas nos proporcionan mucha información útil, que nos permite desde saber que artículo es el más visitado en nuestro blog, hasta como enfocar mejor una campaña publicitaria.</p>
+
+<p>De este modo, <strong>es especialmente importante que los datos recopilados sean reales</strong>, es decir, que el tráfico analizado no provenga de bots o programas automatizados (Al final las personas siempre somos lo más importante :P). En resumen, <strong>al recibir ataques de este tipo, nuestras analíticas quedan infectadas ofreciendo información errónea</strong>. </p>
+
+<p>Los que utilizan esta práctica consiguen incluir sus links en nuestras herramientas y logs. El Referrer SPAM está bastante penalizado por los buscadores (por ejemplo, la búsqueda de estos dominio en Google no ofrece ningún resultado).</p>
+
+<p>Entonces, ¿por qué este tipo de ataques? La primera es que algo molesto y los que trabajamos con estas herramientas, al final acabamos entrando en dichas webs para comprobar si realmente son "reales" o por curiosidad. <strong>Así de simple, consiguen retornar tráfico ahacia su web</strong>.</p>
+
+<h1 id="apararlelospies">A pararle los pies</h1>
+
+<p>Para solucionar este problema tenemos dos frentes con los que lidiar: nuestro servidor y las plataformas analíticas. En este artículo vamos a centrarnos en <strong>Nginx y Google Analytics</strong>.</p>
+
+<h2 id="googleanalytics">Google Analytics</h2>
+
+<p>Si ya hemos recibido algún ataque de este tipo, los datos están almacenados en nuestra cuenta. Lo único que nos queda es filtrarlos para evitar que se muestren en la interfaz. Para filtrarlos, primero nos dirigimos a nuestra cuenta y pulsamos en <em>Administrador > Filtros</em>:</p>
+
+<p><img src="http://laux.es/content/images/2015/04/filtros.png" alt="Sección de filtros en Google Analytics"></p>
+
+<p class="img-caption">Sección de filtros en Google Analytics</p>
+
+<p>Una vez dentro, pulsamos en <em>Filtro Nuevo</em> y rellenamos los campos como se muestra en la siguiente captura. La expersión regular a incluir la podéis encontrar en el siguiente <a href="https://gist.github.com/Angelmmiguel/4b8b80dec76cf93d123a#file-regex-txt">Gist</a>. Si véis que falta algo, no dudéis en comentar y lo agregamos ;).</p>
+
+<p><img src="http://laux.es/content/images/2015/04/filtro_exclusion.png" alt="Agregar un filtro de exclusión en Google Analytics"></p>
+
+<p class="img-caption">Filtro de exclusión en Google Analytics</p>
+
+<p>De cara al tráfico futuro, Google Analytics nos permite ignorar dominios de referencia de manera que cuando lleguen nuevos datos con dicha referencia serán ignorados. Aplicar estos filtros es un poco más tedioso, ya que debemos de hacerlo uno a uno. Para ello nos dirigimos a la sección de <em>Lista de exclusión de referencias</em>:</p>
+
+<p><img src="http://laux.es/content/images/2015/04/exclusion_refs.png" alt="Menú de listas de exclusión de referencias"></p>
+
+<p class="img-caption">Menú de listas de exclusión de referencias</p>
+
+<p>Una vez dentro de la sección, pulsamos en <em>Agregar lista de exclusión de referencia</em> e incluimos cada dominio con su extensión: .es, .com...</p>
+
+<h2 id="nginx">NGINX</h2>
+
+<p>También es importante parar estos ataques desde el servidor. Con los cambios anteriores eliminamos los datos erróneos en Google Analytics, <strong>pero las peticiones siguen por lo que consumen el ancho de banda de nuestro servidor</strong>.</p>
+
+<p>Para bloquear el acceso desde determinadas referencias nos dirigimos a los archivos de configuración de nuestros hosts virtuales. Estos se encuentran en <code>nginx/sites-availables/</code> o <code>nginx/sites-enabled</code> (personalmente los archivos de configuración los tengo en <code>sites-available</code> y para activarlos creo un symlink en <code>sites-enabled</code>).</p>
+
+<p>En cada archivo de configuración, dentro de <code>location</code> introducimos el siguiente condicional:</p>
+
+<pre><code class="language-nginx"># Stop SPAM Referrers
+        if ($http_referer ~* (Free-Traffic|babes|click|diamond|forsale|girl|jewelry|love|nudit|poker|porn|poweroversoftware|sex|teen|video|webcam|zippo|social-buttons|simple-share-buttons|free-share-buttons)){
+                  return 403;
+        }
+</code></pre>
+
+<p>En el <a href="https://gist.github.com/Angelmmiguel/4b8b80dec76cf93d123a#file-nginx-site-conf">Gist</a> que comenté anteriormente tenéis un ejemplo. Antes de reiniciar Nginx, comprobamos que no nos hemos equivocado mediante el comando <code>nginx -t</code>. Si todo está ok reiniciamos nginx: <code>service nginx restart</code>.</p>
+
+<p>Ahora solo nos queda probar que todo ha ido bien, para ello realizamos una petición a nuestro servidor e introducimos como referencia alguna web que debería bloquear. En mi caso he utilizado CURL, y como era de esperar, con una referencia de free-share-buttons obtenemos un error 403.</p>
+
+<p><img src="http://laux.es/content/images/2015/04/curl-1.png" alt="Petición con CURL agregando como referencia free-share-buttons"></p>
+
+<p class="img-caption">Al realizar una petición con una  referencia Spam, obtenemos un error 403</p>
+
+<h1 id="mssoluciones">Más soluciones</h1>
+
+<p>Os dejo otros artículos con más información y soluciones a estos ataques :)</p>
+
+<ul>
+<li><a href="http://blog.raventools.com/stop-referrer-spam/">How To Stop Referrer Spam</a></li>
+<li><a href="http://www.jarfer.com/como-eliminar-el-referrer-spam/">Cómo eliminar el referrer Spam</a></li>
+</ul>]]></content:encoded></item><item><title><![CDATA[¿Por qué refactorizar?]]></title><description><![CDATA[La refactorización es la mejora del código y estructura de una aplicación sin afectar al funcionamiento actual. ¿Quién no ha gritado al abrir un fichero?]]></description><link>http://laux.es/refactorizar/</link><guid isPermaLink="false">232a786e-a9a4-415b-996d-478c8076161c</guid><category><![CDATA[Ruby]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Thu, 02 Apr 2015 13:36:55 GMT</pubDate><media:content url="http://laux.es/content/images/2015/04/frankenstein-1.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://laux.es/content/images/2015/04/frankenstein-1.jpg" alt="¿Por qué refactorizar?"><p>La refactorización es el proceso de modificación del código fuente de una aplicación sin afectar a su comportamiento actual. En otras palabras, modificamos internamente su estructura sin perder ni agregar funcionalidad.</p>
+
+<p>Generalmente, el objetivo es <strong>mejorar la calidad del código, optimizarlo y corregir problemas</strong>. ¿Quién no ha abierto un archivo que había programado hace dos meses y ha soltado una lagrimita?</p>
+
+<h1 id="cadaaplicacinesunmundo">Cada aplicación es un mundo</h1>
+
+<p><strong>Programar algo es fácil, pero programar bien es bastante más complicado</strong>. Tenemos a nuestra disposición una gran cantidad de manuales, tutoriales, librerías, proyectos OpenSource... Una navaja Suiza que convierten una aplicación en un joven Frankestein.</p>
+
+<p><img src="http://laux.es/content/images/2015/04/frankenstein.jpg" alt="¿Por qué refactorizar?"></p>
+
+<p class="img-caption">¡El servidor arranca! ¡Funciooona!</p>
+
+<p>Como toda navaja, es un arma de doble filo. Copiar y pegar, adoptar una solución sin sopesar los pros y los contras, o sobrecargar a nuestro Frankestein con 18 piernas cuando con dos es suficiente, hace que a la larga, nuestra aplicación comience a no poder ofrecer el servicio para que el que se programó.</p>
+
+<p>Los plazos ajustados, la inexperiencia en el lenguaje y muchas más situaciones que cada uno hemos tenido, provocan que sea usual encontrarnos con problemas de este tipo en nuestras aplicaciones.</p>
+
+<h1 id="cundo">¿Cuándo?</h1>
+
+<p>Cualquier momento es bueno para aplicar nuevos conocimiento en tu código, <strong>¿pero cuándo es bueno pararnos a mejorar lo anterior?</strong></p>
+
+<p><em>Si algo funciona, no lo toques</em>. Esta es una frase que comparto en algunas ocasiones, pero si basamos nuestra aplicación en esta idea, pronto tendremos problemas. <strong>Aunque parezca que pararte a retocar algo que funciona es una pérdida de tiempo, a la larga lo agradecerás.</strong></p>
+
+<p>Un código mal estructurado provoca lo que yo llamo <strong>"avalancha mojónica" o "tsunami de ñapas"</strong>. Un problema en un punto de la aplicación debido a algún aspecto que no se consideró empieza a afectar a otros componentes, teniendo que modificar gran cantidad de código por un detalle.</p>
+
+<p>Para mi, <strong>el mejor momento para refactorizar es al acabar un ciclo de desarrollo en el que te has dado cuenta que todo ha supuesto un esfuerzo mayor del que debería</strong>. Por supuesto, <strong>no es necesario refactorizar todo una aplicación entera (y tampoco recomendable)</strong>. Lo mejor es crear una nueva rama en Git, trabajar en ello poco a poco y aplicar lo aprendido al nuevo código.</p>
+
+<h1 id="refactoring">Refactoring</h1>
+
+<p>Las ventajas de refactorizar son múltiples, tanto a nivel de aplicación como a nivel personal. Pararte a refactorizar implica el replanteamiento de un problema, enfrentarte de nuevo ante algo que "funciona" pero que se puede mejorar gracias a tu experiencia.</p>
+
+<p>Papel y boli son tus amigos. <strong>Analiza el problema de nuevo, observa como lo resolviste y plantea una nueva solución teniendo en mente el futuro. Es importante no olvidarte de que no estás solo</strong>, amigos, escritores en blogs (ejem) o alguien en Twitter seguro que se han enfrentado a una situación similar y están dispuestos a ayudarte.</p>
+
+<p>De manera personal puedo decirte que tras un tiempo refactorizando partes de nuestra aplicación de <a href="https://twitter.com/redborder_net">@redBorder_net</a> es cuando realmente he sentido que entiendo de Ruby. </p>
+
+<p>He de decir, que he soltado algún grito como "whaaaaat!" cuando he repasado archivos que creé hace tiempo. Pero gracias a amigos como <a href="https://twitter.com/carlosrdrz">@carlosrdrz</a>, <a href="https://twitter.com/cmeniz">@cmeniz</a> y <a href="https://twitter.com/pikislabis">@pikislabis</a>, al tiempo que llevo programando y a leer, ahora puedo decir que soy mejor programador :D.</p>]]></content:encoded></item><item><title><![CDATA[Colorear logs en consola]]></title><description><![CDATA[Trabajar con logs en tiempo real es una locura. Herramientas como tail y egrep nos ayudan a colorear y destacar lo que importa]]></description><link>http://laux.es/colorear-logs-en-consola/</link><guid isPermaLink="false">6ab1a541-e8ab-43be-ba00-26e05a930ebe</guid><category><![CDATA[Bash]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Wed, 04 Mar 2015 20:35:46 GMT</pubDate><content:encoded><![CDATA[<p>Trabajar en tiempo real cazando datos en Logs es una locura, pero a veces, irremediablemente necesario.</p>
+
+<p>Para estos momentos, suelo ayudarme de dos comando para leer y destacar las partes que me interesan. Con <em>tail</em> y la opción -f, leo los datos de un log en tiempo real, los cuales pasan a través de <em>egrep</em> que aplica una expresión regular para colorear y mostrar los datos. Por ejemplo, para leer de un Log de producción y destacar la palabra <strong>controller</strong>, podemos ejecutar el siguiente comando:</p>
+
+<pre><code>tail -f production.log | egrep ---color 'controller'
+</code></pre>
+
+<p>En este caso, solo se mostrará por consola las líneas que contengan dicha palabra que además, aparecerá destacada en color.</p>
+
+<p>En el caso de necesitar leer todas las líneas, agregamos al patrón <strong>regex</strong> la detección de última línea. De esta manera, al encontrar siempre dicho "caracter", mostrará todas.</p>
+
+<pre><code>tail -f production.log | egrep ---color 'controller|$'
+</code></pre>]]></content:encoded></item><item><title><![CDATA[UX y SmartBands]]></title><description><![CDATA[Las SmartBands se han convertido en compañeras de muchos. Estas deben ayudarnos e influir en nuestro día a día, pero nunca deben de intentar obligarnos]]></description><link>http://laux.es/smartbands/</link><guid isPermaLink="false">9a7af396-d6cf-4737-97eb-5b7bf569c7a9</guid><category><![CDATA[UX]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Sat, 17 Jan 2015 17:06:47 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://laux.es/content/images/2015/01/miband.jpg" alt="Mi band"></p>
+
+<p class="img-caption"><a href="http://www.mi.com/sg/miband/">Mi Band</a></p>
+
+<p><em>Ante todo decir que este artículo no pretende hacer un análisis de esta pulsera, sino de qué rodea a las smartbands y como han influido en mi día a día</em></p>
+
+<p>Son ya 5 días con esta pulsera en mi muñeca. Dormir, ducharme, trabajar, salir... tareas diarias que quedan registradas y sincronizadas con la aplicación y sus servidores.</p>
+
+<p>Alejándome de su uso deportivo, cada vez más personas la incorporan a su rutina. El elevado precio de algunas de estas pulseras, la falta de funcionalidad para actividades diarias y muchas veces, el miedo de perder la privacidad, son motivos que llevan a uno a plantearse la compra de dicho gadget.</p>
+
+<h1 id="3puntosalda">3 puntos al día!</h1>
+
+<p>Contar pasos es una de esas características que traen todas las pulseras del mercado, y el sedentarismo uno de los principales problemas de la sociedad en la que vivimos. </p>
+
+<p>Llegar al trabajo y ponerte delante de una pantalla, moverte en coche/transporte público, sentarte en el sofá a ver la tele o ponerte con el ordenador, ¿te suena?. Cada vez estamos más concienciados de que hacemos poco deporte y la relación de este con nuestra salud.</p>
+
+<p><strong>Contar nuestros pasos es una manera de decirnos a nosotros mismos que nos movemos más de lo que creemos</strong>. Para una persona adulta, el deporte es necesario y andar (sin entrar en senderismo...) no es suficiente, pero ver que he andado 8 kilómetros en un día <strong>sirve como "placebo" en cuanto a satisfacción personal</strong>.</p>
+
+<p>Esto lo saben muy bien en Mi Band y esta te permite establecer tu meta de pasos al día: quiero dar a diario 6000 pasos. En todo momento puedes saber como llevas tu objetivo pues la pulsera tiene tres LEDs en la zona superior y su iluminación indica el porcentaje actual para llegar a tu objetivo.</p>
+
+<p><img src="http://laux.es/content/images/2015/01/mibandluces.jpg" alt="Mi band indicando que ya he cumplido mi objetivo"></p>
+
+<p class="img-caption">Las tres luches indican que ya he dado los 6000 pasos que me propuse</p>
+
+<p>En cuanto cumples tu objetivo, la pulsera vibra y se ilumina. <strong>¡Te has propuesto algo y lo has conseguido!</strong> ¿Fácil y efectivo verdad?. Ahí llevas tu ración de satisfacción diaria, eres capaz de cumplir tus objetivos.</p>
+
+<h1 id="dormirdormzzzzz">Dormir, dorm... zzzZZ</h1>
+
+<p>Otra de las funcionalidades típicas es la de seguimiento del sueño y alarmas inteligentes. Dormir bien hace que rindamos más y nos encontremos mejor y de buen humor.</p>
+
+<p>Todos sabemos que es difícil mantenter la costumbre de dormir al menos, 8 horas al día. Insomnio, preocupaciones, o simplemente tener que acabar un proyecto o prácticas de universidad hacen que durmamos menos de lo que debiéramos. Cabe decir, que cada uno se conoce a sí mismo y hay quién duerme más y quién menos.</p>
+
+<p>Las alarmas inteligentes son una manera despertarte con el pie derecho (¿o izquierdo si eres zurdo?). Estas alarmas evitan romper ese sueño del que ni un concierto debería despertarte. </p>
+
+<p>No obstante, lo que más me he gustado de este sistema es el ser consciente de que estoy durmiendo menos de lo que debería. <strong>Es esa llamada de atención que me dice que estoy durmiendo poco lo que realmente merece la pena de dormir con algo pegado a la muñeca</strong> (un poco molesto para mi gusto).</p>
+
+<p><img src="http://laux.es/content/images/2015/01/mibanddormir.jpg" alt="Aplicación Mi band y estadísticas de los últimos días"></p>
+
+<p class="img-caption">Debo de dormir un poco más...</p>
+
+<h1 id="privacidad">Privacidad</h1>
+
+<p>Es complicado tratar este tema cuando llevas un objeto encima que monitoriza todos tus pasos y normalmente, los exporta a un servidor.</p>
+
+<p>Llegados a este punto debes de decidir si acceder a ello o no. Solo quiero comentar que le otro día conecté mi móvil al ordenador y me puse a echar un vistazo al volcado de Logs de información de Android (en el siguiente apartado veréis por qué hice esto). Me llevé una sorpresa con un mensaje de la aplicación Mi Band a las 12:30 de la noche que decía:</p>
+
+<blockquote>
+  <p><em>Es muy tarde, acuestate ya!</em></p>
+</blockquote>
+
+<p>Es algo que prácticamente nadie verá, pero está ahí y nos ayuda a hacernos una idea de la información que pueden obtener sobre nuestros hábitos.</p>
+
+<h1 id="yelfuturo">¿Y el futuro?</h1>
+
+<p>Lo primero que se me viene a la cabeza cuando me preguntan qué me parecen las smartbands, es que están muy desaprovechadas. Monitorizar el sueño y los pasos es algo que hacen prácticamente todas, pero por ejemplo, cambiar de canción con una pulsación no. Mi Band es capaz de detectar pulsaciones, ¿por qué no agregar esta funcionalidad?</p>
+
+<p>El freno a este desarrollo viene por dos partes, el precio y el software de propietario. Android liberó hace poco un SDK (Kit de desarrollo de software) que te permite interactuar directamente con estos dispositivos.</p>
+
+<p>En el caso de Mi Band (cuesta unos 20€), el problema viene porque no se ha liberado la API para trabajar con ella. Como consecuencia, solo los desarrolladores de esta pulsera pueden trabajar en nuevas características. </p>
+
+<p>Aunque siempre algo se escapa de sus manos y la ingeniería inversa está ahí. Este es el motivo de que el otro día estuviera con el móvil conectado al PC y leyendo Logs. Si os queréis informar un poco más, aquí tenéis un proyecto que pretende obtener una API para la Mi Band: <a href="https://github.com/lwis/miband-notifier">MiBand Notifier</a>. </p>
+
+<h1 id="lasmartbandideal">La smartband ideal</h1>
+
+<p>Por supuesto, la Mi Band no lo es. Al final, una pulsera inteligente no es más que un complemento a tu día a día. Te ayuda a darte cuenta de qué haces a diario, qué deberías de hacer y te facilita distintas tareas.</p>
+
+<p>La idea de llevarla personalmente me gusta, pero pienso que <strong>es muy importante tener en mente que nos deben de ayudar, no controlarnos</strong>. Este es el límite que nunca debería de pasar ninguna empresa porque a nadie nos gusta que nos digan que nos acostemos o que hagamos más ejercicio. </p>
+
+<p><strong>La pequeña diferencia entre hacer que nos demos cuenta de que es mejor cambiar algo en vez de intentar obligarnos a ello</strong>, es lo que al final influye realmente en nuestro comportamiento.</p>]]></content:encoded></item><item><title><![CDATA[Copiar clave rsa para ssh desde Mac Os]]></title><description><![CDATA[<p>¿Echas de menos el comando <em>ssh-copy-id</em> en Mac OS?. Puedes susituirlo por la siguiente línea:</p>
+
+<pre><code>cat ~/.ssh/id_rsa.pub | ssh usuario@ip "mkdir ~/.ssh; cat &gt;&gt; ~/.ssh/authorized_keys"
+</code></pre>
+
+<p>Solo hace falta modificar tu usuario y la IP o la dirección de la máquina destino y listo :)</p>]]></description><link>http://laux.es/copiar-clave-publica-ssh-mac-os/</link><guid isPermaLink="false">365cd1a1-f1be-4cfb-bd89-1e0b5ebae545</guid><category><![CDATA[Raspberry Pi]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Tue, 30 Dec 2014 18:15:56 GMT</pubDate><content:encoded><![CDATA[<p>¿Echas de menos el comando <em>ssh-copy-id</em> en Mac OS?. Puedes susituirlo por la siguiente línea:</p>
+
+<pre><code>cat ~/.ssh/id_rsa.pub | ssh usuario@ip "mkdir ~/.ssh; cat &gt;&gt; ~/.ssh/authorized_keys"
+</code></pre>
+
+<p>Solo hace falta modificar tu usuario y la IP o la dirección de la máquina destino y listo :)</p>]]></content:encoded></item><item><title><![CDATA[Alto consumo de CPU por net.agent]]></title><description><![CDATA[La salud de un sistema Linux es importante y una carga alta provoca lentitud a la hora de ejecutar programas o servicios. Net.agent puede ser un problema]]></description><link>http://laux.es/alto-consumo-de-cpu-por-net-agent/</link><guid isPermaLink="false">58dd63b3-5178-4798-ba4d-4962d46c73af</guid><category><![CDATA[Raspberry Pi]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Mon, 29 Dec 2014 22:14:22 GMT</pubDate><content:encoded><![CDATA[<p>Antes al conectarme a mi <a href="http://www.raspberrypi.org/">Raspberry Pi</a> con <a href="http://www.raspbian.org/">Raspbian</a> observé que la carga del sistema era superior a 1 y que el consumo de CPU era demasiado alto.</p>
+
+<p>Al echar un vistazo con comando <strong>top</strong>, había un proceso que estaba consumiendo casi todo el sistema: <strong>net.agent</strong>.</p>
+
+<h1 id="interfazlocal">Interfaz local</h1>
+
+<p>El problema era tan simple como no haber iniciado la interfaz local <strong>(lo)</strong> del sistema. Podeis comprobar si la teneis activa con el comando:</p>
+
+<pre><code>ifconfig | grep -A 6 lo
+</code></pre>
+
+<p>Para activarla basta con ejecutar con permisos de superusuario:</p>
+
+<pre><code>ifup lo
+</code></pre>
+
+<p>Solo queda automatizar el inicio de la interfaz local al encender la Raspberry. Editamos el fichero <em>/etc/network/interfaces</em> con permisos de superusuario y agregamos las siguientes línea:</p>
+
+<pre><code>auto lo
+iface lo inet loopback
+</code></pre>]]></content:encoded></item><item><title><![CDATA[El guante sin pareja]]></title><description><![CDATA[<p><img src="http://laux.es/content/images/2014/Dec/guantew.jpg" alt="El guante sin pareja"></p>
+
+<p class="img-caption">El guante sin pareja</p>  
+
+<p>Esta es la primera vez que escribo un artículo personal en este blog. Es una corta historia que por lo menos a mí me pareció bastante curiosa.</p>
+
+<h1 id="enelbus">En el bus</h1>
+
+<p>La mitad de los días de la semana, mi rutina al volver a casa es coger</p>]]></description><link>http://laux.es/el-guante-sin-pareja/</link><guid isPermaLink="false">4c094ffb-5a02-4481-8db0-e3901a7bab93</guid><category><![CDATA[personal]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Sat, 20 Dec 2014 13:43:03 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://laux.es/content/images/2014/Dec/guantew.jpg" alt="El guante sin pareja"></p>
+
+<p class="img-caption">El guante sin pareja</p>  
+
+<p>Esta es la primera vez que escribo un artículo personal en este blog. Es una corta historia que por lo menos a mí me pareció bastante curiosa.</p>
+
+<h1 id="enelbus">En el bus</h1>
+
+<p>La mitad de los días de la semana, mi rutina al volver a casa es coger el metro y después el autobús. No soy de los que tienen prisa en bajar, espero que el autobús llegue a la parada y cuando para, es cuando cojo mi mochila y me dirijo hacia la puerta.</p>
+
+<p>Ese día viajaba en la zona de atrás del bus. Al llegar a mi parada, el conductor cerró la puerta demasiado rápido y no me dió tiempo a llegar a ella, por lo que mientras seguía entrando gente, me acerqué hasta la mitad del bus y le dije al conductor que abriera otra vez las puertas.</p>
+
+<p>Como es normal, subí el tono de voz para que se enterase, pero iba con la radio y no me oyó. Los que si me oyeron fueron el resto de personas que iban en el bus.</p>
+
+<p>Empecé a andar más rápido, ya que la siguiente parada me obligaba a andar 15 minutos más y era bastante tarde. Lo que me sorpredió, es que a pesar de que todos me miraban, ninguno de los que estaban cerca del conductor le dijo que abriera.</p>
+
+<p>Es por ello, que mientras todos seguían cruzandome la mirada, tuve que correr hacía el conductor para avisarle. Cuando estaba a un metro de él, pude decirle que me abriera y conseguí bajar, pero mientras me acercaba choqué con varias personas y el guante se me cayó del bolsillo.</p>
+
+<h1 id="ymequedsinguante">Y me quedé sin guante</h1>
+
+<p>No sé si fue indiferencia, falta de reacción o ¿verguenza?, de pedir al conductor que me abriera. <strong>A veces no nos damos cuenta de que un pequeño gesto puede ayudar a otra persona</strong>, o estamos demasiado cansados como para preocuparnos por algo que no nos ocurre a nosotros o no nos parece importante.</p>
+
+<p>Esta es la historia de como mi guante se quedó sin pareja.</p>]]></content:encoded></item><item><title><![CDATA[Posición de los botones]]></title><description><![CDATA[<p>Como continuación al artículo <a href="https://laux.es/ok-y-cancelar-no-es-suficiente/">Ok y Cancelar no es suficiente</a>, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones.</p>
+
+<h1 id="big">Big</h1>
+
+<p>Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda</p>]]></description><link>http://laux.es/posicion-botones/</link><guid isPermaLink="false">d1a6f711-e2de-4422-89c5-db500221b065</guid><category><![CDATA[UX]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Sun, 30 Nov 2014 17:41:39 GMT</pubDate><content:encoded><![CDATA[<p>Como continuación al artículo <a href="https://laux.es/ok-y-cancelar-no-es-suficiente/">Ok y Cancelar no es suficiente</a>, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones.</p>
+
+<h1 id="big">Big</h1>
+
+<p>Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda a derecha. Mientras rellenamos los datos de un formulario o leemos un cuadro de diálogo, las líneas se van sucediendo, extrayendo de ellas el contenido relevante.</p>
+
+<p>En un estudio realizado por <a href="https://twitter.com/lukew">Luke Wroblewski</a>, 23 personas realizaron la tarea de completar un formulario y enviarlo. Cada formulario tenía una disposición y morfología distinta de botones de "enviar" y "cancelar". </p>
+
+<p>Como conclusión, dada la alineación del texto y la dirección de lectura de las personas que realizaron el estudio, los diseños más eficientes eran los que situaban los botones a la izquierda del formulario. Los diseños que situaban los botones a la derecha no eran tan eficientes en visualización, pero también tuvieron un 100% de éxito en el envío.</p>
+
+<p><img src="http://laux.es/content/images/2014/Nov/Bowser-sketch.jpg" alt="Cuadro de diálogo con los botones alineados a la izquierda"></p>
+
+<p class="img-caption">Cuadro de diálogo con los botones alineados a la izquierda</p>
+
+<p>Si queréis ampliar más, os dejo el enlace al estudio: <a href="http://www.lukew.com/ff/entry.asp?571">Primary &amp; Secondary Actions in Web Forms</a>.</p>
+
+<h1 id="small">Small</h1>
+
+<p>En el caso de las pantallas de móviles, tendemos a coger el móvil con una sola mano y usamos el pulgar para navegar. En este caso, la zona de confort (zona azul del dibujo) para pulsar con nuestro pulgar se reduce, por lo que si algún elemento se sale de ese límite nos obligará a coger el móvil con la otra mano o a estirar el dedo tapando el contenido.</p>
+
+<p><em>(Quiero remarcar que este esquema está pensado para personas diestras o zurdos que utilicen el móvil con la mano derecha)</em></p>
+
+<p><img src="http://laux.es/content/images/2014/Nov/zonaconfort.png" alt="Zona de confort de pulsación con el pulgar"></p>
+
+<p class="img-caption">Zona de confort de pulsación con el pulgar</p>
+
+<p>Además, debido a la anchura de la pantalla, podemos captar toda la información de una línea en un solo vistazo, por lo que cambiar la posición de los botones no supone una ruptura en nuestro flujo de lectura. </p>
+
+<p>Dadas estas condiciones, la opción más óptima en móviles es situar los botones a la derecha, ya que entrarían dentro de la zona de pulsación del pulgar.</p>
+
+<p><img src="http://laux.es/content/images/2014/Nov/modal.png" alt="Botones de acción dentro de la zona de pulsación del pulgar"></p>
+
+<p class="img-caption">Botones de acción dentro de la zona de pulsación del pulgar</p>
+
+<h1 id="eficiencia">Eficiencia</h1>
+
+<p>Según el estudio de <a href="https://twitter.com/lukew">Luke</a> las personas solo tuvieron problemas a la hora de lidiar con botónes separados e iguales, por lo que si descartamos esa pequeña mejora de eficiencia, mientras distingamos ambos botones y los coloquemos juntos, para un diseño web será más que suficiente.</p>
+
+<p>Os dejo otra referencia más, por si os animáis a leerla ;)</p>
+
+<ul>
+<li><a href="http://ux.stackexchange.com/questions/8569/submit-buttons-on-the-left-or-the-right">Submit Buttons on the Left or the Right?</a></li>
+</ul>]]></content:encoded></item><item><title><![CDATA[Buscar comandos en el terminal de UNIX]]></title><description><![CDATA[<p>Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días?</p>
+
+<h1 id="bsquedahaciaatrs">Búsqueda hacia atrás</h1>
+
+<p>Uno de los comandos más útiles de UNIX es el llamado <strong>Reverse-i-search</strong>. Para ejecutarlo basta</p>]]></description><link>http://laux.es/comandos-anteriores-linux/</link><guid isPermaLink="false">56deca73-2e81-41ca-91b2-87fb4e07b5e6</guid><category><![CDATA[Linux]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Mon, 06 Oct 2014 20:16:00 GMT</pubDate><content:encoded><![CDATA[<p>Escribimos una gran cantidad de comandos en nuestros terminales. Encontrar los últimos es sencillo, nos bastamos con nuestra tecla &#8593;. ¿Pero que ocurre cuando necesitamos el comando que ejecutamos hace varios días?</p>
+
+<h1 id="bsquedahaciaatrs">Búsqueda hacia atrás</h1>
+
+<p>Uno de los comandos más útiles de UNIX es el llamado <strong>Reverse-i-search</strong>. Para ejecutarlo basta con pulsar en CTRL + R en la consola, y empezar a introducir nuestro criterio de búsqueda.</p>
+
+<p>Veamoslo de manera práctica. Imaginemos que hemos ejecutado en el terminal los siguientes comandos, siendo el del final el último ejecutado:</p>
+
+<pre><code>#~ sudo service app restart
+#~ sudo service app2 restart
+#~ sudo service app3 restart
+#~ mv file bbb/ 
+#~ cat bbb/file
+#~ cat bbb/another_file
+#~ cd ~
+#~ mkdir ccc
+</code></pre>
+
+<p>Después del último comando, para llegar otra vez a <em>sudo service app restart</em>, necesitaríamos pulsar &#8593; 8 veces hasta llegar a la línea deseada.</p>
+
+<p>En cambio su pulsamos CTRL+R y comenzamos a escribir <em>"sudo"</em> obtenemos en la consola lo siguiente: </p>
+
+<p><img src="http://laux.es/content/images/2014/Oct/terminal.png" alt="Terminal de Mac OS al ejecutar Reverse-i-search"></p>
+
+<p class="img-caption">Terminal de Mac OS al ejecutar Reverse-i-search</p>
+
+<p>Al buscar hacía arriba la primera coincidencia con <em>"sudo"</em> es <em>sudo service app3 restart</em>. No es nuestro objetivo, pero no hay ningún problema, al pulsar otra vez CTRL + R obtenemos la siguiente coincidencia: <em>sudo service app2 restart</em>. Como imagináis, otra vez más a CTRL + R y finalmente: </p>
+
+<p><img src="http://laux.es/content/images/2014/Oct/terminal2.png" alt="Terminal de Mac OS una vez encontrado el resultado que necesitamos"></p>
+
+<p class="img-caption">Terminal de Mac OS una vez encontrado el resultado que necesitamos</p>
+
+<p>Una vez que hemos llegado al comando en cuestión tenemos dos opciones. Si queremos ejecutar directamente el comando pulsamos en ENTER. Por el contrario, si queremos el comando para modificarlo antes de ejecutarlo, pulsamos en &#8594;.</p>
+
+<h1 id="bsquedahacadelante">Búsqueda hacía delante</h1>
+
+<p>También se puede dar el caso de que nos hayamos pasado el comando que necesitamos. En este caso podemos parar la ejecución y volver a empezar, o podemos acudir a <strong>i-search</strong>.</p>
+
+<h2 id="preparamoselterreno">Preparamos el terreno</h2>
+
+<p>En la mayoría de los terminales será necesario configurar la consola para poder ejecutar el comando de búsqueda hacia delante (<strong>i-search</strong>). Para ello simplemente ejecutamos el siguiente comando: </p>
+
+<pre><code>stty -ixon
+</code></pre>
+
+<p>Si queréis más información sobre el por qué de esta necesidad, dirigios al siguiente enlace de <a href="http://stackoverflow.com/questions/17760474/reverse-intelligent-search-reverse-i-search-how-to-get-previous-result">StackOverflow</a>.</p>
+
+<h2 id="continuamos">Continuamos!</h2>
+
+<p>Ahora solo queda saber cómo activar dicho comando. Al igual que <strong>Reverse</strong>, tiene su propio atajo de teclado y es: CTRL + S. </p>
+
+<p>Al ejecutar este comando veremos como el terminal cambia el programa de <strong>Reverse-i-search</strong> a <strong>i-search</strong>. Ejecutando otra vez más CTRL + S comenzaremos a ir hacía delante en función de nuestro criterio de búsqueda.</p>
+
+<p><img src="http://laux.es/content/images/2014/Oct/terminal3.png" alt="Ejecución del comando i-search en el terminal de MAC"></p>
+
+<p class="img-caption">Ejecución del comando i-search en el terminal de MAC</p>]]></content:encoded></item><item><title><![CDATA[Comparación de Arrays con Ruby]]></title><description><![CDATA[<p>Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores.</p>
+
+<h1 id="compararconvalores">Comparar con valores</h1>
+
+<p>Utilizamos la función <em>include?</em>. Preguntamos al array si este incluye un elemento retornando como respuesta <em>true</em></p>]]></description><link>http://laux.es/comparacion-de-arrays-con-ruby/</link><guid isPermaLink="false">a3575d64-4b69-4317-9ec2-abbed89f39ed</guid><category><![CDATA[Ruby]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Fri, 29 Aug 2014 22:41:23 GMT</pubDate><content:encoded><![CDATA[<p>Trabajando hoy, he tenido que realizar distintas comparaciones entre varios arrays en ruby 2.1.2. Os recopilo las distinas maneras para comparar ya sea con otros arrays u otros valores.</p>
+
+<h1 id="compararconvalores">Comparar con valores</h1>
+
+<p>Utilizamos la función <em>include?</em>. Preguntamos al array si este incluye un elemento retornando como respuesta <em>true</em> o <em>false</em>.</p>
+
+<pre><code>a = ["a","b","c"]   
+a.include? "a"         # true
+</code></pre>
+
+<p>Existen otras opciones como utilizar la función <em>index</em>. Si el valor retornado es nil es que el valor no se encuentra en el array</p>
+
+<pre><code>a = ["a","b","c"]    
+a.index? "z"         # nil
+</code></pre>
+
+<p>Esta manera es menos óptima que la anterior, pero también puede resultar útil en determinadas ocasiones.</p>
+
+<h1 id="dosarrays">Dos arrays</h1>
+
+<p>En el caso de querer comparar dos arrays la función a utilizar no es tan directa. Para compararlos vamos a aprovechar el uso de operadores básicos y binarios.</p>
+
+<h2 id="coincidenciadealgnvalor">Coincidencia de algún valor</h2>
+
+<p>Si queremos comprobar si algún valor de un array está contenido en otro, podemos utilizar el operador AND de array:</p>
+
+<pre><code>A = ["a","b","c"]
+B = ["c","d","e"]
+C = A &amp; B            
+# C = ["c"]
+</code></pre>
+
+<p>Podemos aprovechar esto para comparar:</p>
+
+<pre><code>C.empty?            
+# true si coincide algún valor
+</code></pre>
+
+<h2 id="inclusindeunarrayenotro">Inclusión de un array en otro</h2>
+
+<p>Si queremos comprobar que todos los valores de un array están en incluidos en otro, utilizamos el operador resta de array.</p>
+
+<p>En este caso, vamos a comparar si el array <em>A</em> está incluído en <em>B</em>:</p>
+
+<pre><code>A = ["a","b","c"]
+B = ["c","d","e"]
+
+(B - A).empty?    
+# true si a está incluido
+</code></pre>
+
+<p>Como en el caso anterior, podemos utilizar el operador AND:</p>
+
+<pre><code>(A &amp; B).size == A.size 
+# true si a está incluido
+</code></pre>]]></content:encoded></item><item><title><![CDATA[Errores 404]]></title><description><![CDATA[<p>Un error 404 es un error, y como tal <strong>viene provocado por un comportamiento no esperado de nuestra web</strong>. Esto provoca que un usuario no haya sido capaz de encontrar el contenido que desea, bien sea por un cambio en la estructura de la web o por un enlace mal</p>]]></description><link>http://laux.es/errores-404/</link><guid isPermaLink="false">ff9b337f-0688-44e6-b8b6-bd31d6c8bb0a</guid><category><![CDATA[UX]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Wed, 26 Feb 2014 10:56:15 GMT</pubDate><content:encoded><![CDATA[<p>Un error 404 es un error, y como tal <strong>viene provocado por un comportamiento no esperado de nuestra web</strong>. Esto provoca que un usuario no haya sido capaz de encontrar el contenido que desea, bien sea por un cambio en la estructura de la web o por un enlace mal escrito.</p>
+
+<p>¿Qué significa? Que nuestro usuario está perdido y que debemos de ayudarle.</p>
+
+<h1 id="patadaenla">Patada en la...</h1>
+
+<p>También podemos pegarle una patada a la experiencia de usuario (siempre tenemos esa opción) mostrando el siguiente error:</p>
+
+<p><img src="http://laux.es/content/images/2014/Aug/Captura.png" alt="Error 404"></p>
+
+<p class="img-caption">Error 404 de la web de mi <a href="http://www.etsi.us.es">Universidad</a></p>
+
+<p>Por si fuera poco, el error es suyo. Esta web ha sido modificada recientemente cambiando todas las URL y sin dar re-direccionamiento a las anteriores. Como consecuencia todo enlace de otras webs y buscadores nos trae hasta esta maravilla de aviso 404.</p>
+
+<p>No solo no ayuda de ninguna manera al usuario sino que asocia este error con algo tan negativo como una señal de peligro. ¿Qué peligro tenemos aquí? Una mala asociación de conceptos provoca una muy mala experiencia de usuario: estamos ante un error, pero nada más allá que no encontrar un fichero.</p>
+
+<h1 id="entrepierna">... entrepierna</h1>
+
+<p>Si queremos que a la UX de nuestra web no le duela esta parte tan sensible <strong>debemos de evitar los errores 404 en la medida de lo posible y gestionarlos de manera correcta cuando ocurren</strong>.</p>
+
+<p>Ante un error 404, podemos avisar al usuario por qué ha sido provocado el error, introducirle alguna "cuña" como un vídeo, caricatura... que quite importancia a este, explicarle como encontrar contenido en la web o incluso ofrecerle otros enlaces que podrían ser su destino. Todas estas son posibilidades totalmente válidas y que mejoran la experiencia del usuario.</p>
+
+<p>Os dejo dos ejemplos que gestionan bien los errores 404:</p>
+
+<p><img src="http://laux.es/content/images/2014/Aug/404git.png" alt="Error 404 en Github"></p>
+
+<p class="img-caption">Error 404 <a href="http://github.com/lukeyosoytupare">Github</a></p>
+
+<p><img src="http://laux.es/content/images/2014/Aug/404uxmad.png" alt="Error 404 en UXMAD"></p>
+
+<p class="img-caption">Error 404 <a href="https://uxmad.es/jarllanuevapelidechiquitodelacalzada">UXMAD</a></p>]]></content:encoded></item><item><title><![CDATA[Interacción al votar]]></title><description><![CDATA[<p>Interesante interacción de la web de <a title="Askmen" href="http://kcy.me/zd25">Askmen</a>. Se trata de un ranking y de está manera, al tu votar muestran la información sobre todos los votos. Muy gráfico e intuitivo.</p>
+
+<p><center><iframe src="//instagram.com/p/kcrx1bJA_Q/embed/" height="350" width="300" frameborder="0" scrolling="no"></iframe></center></p>]]></description><link>http://laux.es/interaccion-ranking/</link><guid isPermaLink="false">76b45dd8-aadc-4dfa-8fe4-a2b8edb54bf6</guid><category><![CDATA[Interacción]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Sat, 15 Feb 2014 20:41:30 GMT</pubDate><content:encoded><![CDATA[<p>Interesante interacción de la web de <a title="Askmen" href="http://kcy.me/zd25">Askmen</a>. Se trata de un ranking y de está manera, al tu votar muestran la información sobre todos los votos. Muy gráfico e intuitivo.</p>
+
+<p><center><iframe src="//instagram.com/p/kcrx1bJA_Q/embed/" height="350" width="300" frameborder="0" scrolling="no"></iframe></center></p>]]></content:encoded></item><item><title><![CDATA[UX y seguridad, en busca del equilibrio]]></title><description><![CDATA[<p>Hace tiempo empecé a escribir este artículo y lo dejé en borrador, pero la siguiente lectura ha hecho que vuelva a retomarlo: <a title="How I lost my $50000 twitter account" href="http://kcy.me/ygv7" target="_blank">How I Lost My $50,000 Twitter Username</a>. Resumidamente, cuenta la historia de <a href="https://medium.com/@N">Naoki Hiroshima</a>, un desarrollador que fue extorsionado para ceder una cuenta de twitter bastante extraña</p>]]></description><link>http://laux.es/ux-seguridad-en-busca-del-equilibrio/</link><guid isPermaLink="false">ec0873b4-c218-48ac-8582-ee61970b6553</guid><category><![CDATA[UX]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Mon, 03 Feb 2014 09:33:08 GMT</pubDate><content:encoded><![CDATA[<p>Hace tiempo empecé a escribir este artículo y lo dejé en borrador, pero la siguiente lectura ha hecho que vuelva a retomarlo: <a title="How I lost my $50000 twitter account" href="http://kcy.me/ygv7" target="_blank">How I Lost My $50,000 Twitter Username</a>. Resumidamente, cuenta la historia de <a href="https://medium.com/@N">Naoki Hiroshima</a>, un desarrollador que fue extorsionado para ceder una cuenta de twitter bastante extraña y valiosa: @N.</p>
+
+<p>Twitter es una gran red social donde personas, marcas y organismos conviven. Desde que fue fundada en 2006, muchos nos hemos registrado. Como ocurre con los dominios web, los nombres de las cuentas están cotizados, bien por corresponder a una entidad real (nombres de ciudades, marcas...), por antiguedad o por ser "especiales". Dentro de esta última categoría podemos incluir la cuenta @N.</p>
+
+<p>¿Cómo extorsionar a un desarrollador para ceda su cuenta @N? El "tesoro" que el cracker robó y con el que pudo extorsionar fue nada más y nada menos que la cuenta de GoDaddy de Naoki. ¿Cómo os sentiríais si de un momento a otro perdierais el control de todos los servidores/dominios que llevan a vuestros proyectos?</p>
+
+<h1 id="easy">Easy</h1>
+
+<p><img src="http://laux.es/content/images/2014/Sep/coffee.jpg" alt="Una taza de café"></p>
+
+<p class="img-caption">Una persona y un teléfono</p>
+
+<p>Una de las partes más interesantes de esta historia es el ofrecimiento del cracker a contar como había conseguido las credenciales de acceso a la cuenta de GoDaddy. Esto demuestra lo orgulloso que se sentía este señor/señora y a nosotros nos ayuda a ver que la seguridad es un factor importante.</p>
+
+<p>Para obtener las credenciales, primero llamó a PayPal, con previo conocimiento del email de Naoki. Con esa llamada y algunos trucos de ingeniería social, obtuvo los 4 últimos dígitos de la tarjeta de crédito de este y con ellos consiguió una nueva contraseña para la cuenta de GoDaddy. La política de recuperación de GoDaddy exige que sean los últimos 6 dígitos y no 4, aunque solo hizo falta un poco de persistencia.</p>
+
+<p>Así, con dos llamadas y si moverse de su silla, una única persona pudo hacerse con el control de una cuenta de hosting.</p>
+
+<h1 id="uxyseguridad">UX y seguridad</h1>
+
+<p>La seguridad informática es un tema que afecta directamente al usuario. La pérdida de control y la fuga de datos debe de ser una prioridad a la hora de tratar con estos. Siempre que ofrecemos una funcionalidad que implica directamente datos de usuario debemos de pensar en la balanza: <strong>funcionalidad y seguridad</strong>.</p>
+
+<p>Existen infinidad de situaciones y siempre es complejo decantarse por una o por otra. Personalmente, os comparto mi manera de plantear una nueva funcionalidad para una aplicación:</p>
+
+<ul>
+<li><strong>Planteo los posibles problemas de seguridad que puede causar dicha funcionalidad</strong>: pérdida o robo de datos, uso indebido de credenciales, sobrecarga en el servidor...</li>
+<li><strong>Marco cuales de de los problemas soy capaz de asumir</strong>. Es decir, qué problemas dada mi experiencia como programador soy capaz de corregir y evitar que se produzcan.</li>
+<li>Esto suelo tenerlo de antemano, pero <strong>ahora toca escribir las ventajas que supone dicha funcionalidad para las personas</strong> que la van a utilizar: facilitar una tarea, introducir un concepto nuevo...</li>
+<li>Una vez que tenemos los "pros y los contras", valoro si introduzco la funcionalidad. Mi único consejo en este momento es que <strong>os pongáis en la piel de la persona que sufre el problema</strong> y como os tomaríais el que accedieran a vuestra cuenta, no pudiérais acceder a la aplicación porque el servidor está caído...</li>
+</ul>
+
+<p>Por ejemplo, podemos ofrecer a los usuarios el registro con Twitter en nuestra web con el fin de ofrecerle un botón para tuitear directamente a su cuenta. Así ofrecemos la facilidad y comodidad de tuitear directamente, pero en nuestra mano queda el hecho de proteger ese acceso para evitar publicaciones no deseadas.</p>
+
+<h1 id="porquyo">¿Por qué yo?</h1>
+
+<p><img src="http://laux.es/content/images/2015/04/people.jpg" alt="Personas en un autobús, por Matthew Wiebe"></p>
+
+<p class="img-caption">Hay varias razones para "atacar" una aplicación, y en Internet somos muchos (Fotografía por <a href="https://unsplash.com/matthewwiebe">Matthew Wiebe</a>)</p>
+
+<p>Una idea muy recurrente en estos casos es preguntarse: <strong>¿pero quién va a querer atacarme a mí?</strong>. Hay parte de razón en esta afirmación pues si tenemos un proyecto pequeño, en principio, no debe de ser el objetivo de ciberdelincuentes que buscan beneficios económicos más que molestar.</p>
+
+<p>El problema viene de la costumbre y de cubrirnos en esta pregunta para todos nuestros proyectos. Si por ejemplo extrapolamos esta pregunta a una empresa que tiene una presencia y una marca que mantener, un problema de seguridad puede conllevar multas y lo que es peor, un escándalo que afecta a la propia imagen y reputación de esta.</p>
+
+<p><strong>Debemos de pensar que la seguridad es como un fantasma, cuando aparece un problema asusta a todos. Es un factor importante, pero se vuelve importantísimo cuando se pierde</strong>.</p>
+
+<h1 id="inextremisno">In extremis no</h1>
+
+<p>En temas de seguridad casi siempre tenemos los dos extremos: personas que se preocupan de cada detalle de seguridad o totalmente despreocupadas de ello.</p>
+
+<p>Lo importante es no caer en los extremos. No tenemos que asegurar cada pequeño detalle de nuestras aplicaciones hasta el punto de no dejarla avanzar, pero <strong>debemos de ser conscientes de qué hacemos, qué implicación tiene y si compensa</strong>.</p>
+
+<p>Aceptar nuestros términos de uso es sencillo y nos cubren las espaldas, pero por un problema de seguridad podemos perder nuestro valor más preciado, nuestros usuarios.</p>]]></content:encoded></item><item><title><![CDATA[GinAndUX, primer día]]></title><description><![CDATA[<p><img src="http://laux.es/content/images/2014/Sep/2013-11-28-18-19-21-1.jpg" alt="Mesa preparada para el GinAndUX"></p>
+
+<p class="img-caption">Mesa preparada para el <a href="https://twitter.com/GinAndUx">GinAndUX</a> (en <a href="http://47deg.com/es/">47 Degrees</a>)</p>
+
+<p>En el último Betabeers de Cádiz al que fui, una de las ideas que más me gustó fue la que propuso <a href="https://twitter.com/Jorge__Galindo" title="Twitter de Jorge Galindo">Jorge</a>: <a href="https://twitter.com/GinAndUx" title="Twitter de GinAndUX">GinAndUX</a>. Bien os puede parecer un tanto extraño o perfecto, pero después de ir a la primera edición sé que</p>]]></description><link>http://laux.es/ginandux-primer-dia/</link><guid isPermaLink="false">f8566a70-5381-4dc0-9621-223a05363e13</guid><category><![CDATA[GinAndUX]]></category><dc:creator><![CDATA[Ángel M Miguel]]></dc:creator><pubDate>Sun, 01 Dec 2013 18:22:19 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://laux.es/content/images/2014/Sep/2013-11-28-18-19-21-1.jpg" alt="Mesa preparada para el GinAndUX"></p>
+
+<p class="img-caption">Mesa preparada para el <a href="https://twitter.com/GinAndUx">GinAndUX</a> (en <a href="http://47deg.com/es/">47 Degrees</a>)</p>
+
+<p>En el último Betabeers de Cádiz al que fui, una de las ideas que más me gustó fue la que propuso <a href="https://twitter.com/Jorge__Galindo" title="Twitter de Jorge Galindo">Jorge</a>: <a href="https://twitter.com/GinAndUx" title="Twitter de GinAndUX">GinAndUX</a>. Bien os puede parecer un tanto extraño o perfecto, pero después de ir a la primera edición sé que no puede haber una combinación mejor.</p>
+
+<h1 id="antesdelamanteca">Antes de la manteca</h1>
+
+<p>Después de un primer momento botellona dónde todos estábamos de pie, con nuestro Gin tonic y contando anécdotas, empezamos a sentarnos para abrir la primera quedada.</p>
+
+<p>Me quedé impresionado con el público. Allí nos habíamos reunido personas de Cádiz y Sevilla, pero no solo eso, eramos desde tipógrafos y diseñadores, a desarrolladores web y móvil pasando por expertos en usabilidad y aprendices. <strong>Sólo por conseguir aunar a personas que trabajamos en campos que no deberían estar tan separados, pero por desgracia lo están, demuestra que la experiencia de usuario está ahí y consigue que un equipo multidisciplinar formen un sólo conjunto.</strong></p>
+
+<p>Jorge hizo una introducción a la Ginebra que bebimos, <a href="https://twitter.com/GinAndUx/status/405994961189240832" title="Ginebra sin amor">aunque Hendrick no nos diera amor</a>. Personalmente ni suelo beber ni soy un erudito en Ginebras, pero después de cortar ese pepino de 30 centímetros, la verdad es que sabía bastante bien.</p>
+
+<h1 id="alamanteca">¡A la manteca!</h1>
+
+<p><img src="http://laux.es/content/images/2014/Sep/BaLQPr0IcAAA3xP.jpg" alt=""></p>
+
+<p class="img-caption">Vamos a la manteca (Foto de <a href="https://twitter.com/raulraja/status/406115884416397312">@raulraja</a></p>
+
+<p>En esta primera sesión se habló sobre prototipado. Aprovechando que eramos unos 15 asistentes, las diapositivas eran introducidas y comentadas por todos.</p>
+
+<p>Principalmente tratamos sobre la importancia del prototipado dentro del proceso de desarrollo de una aplicación. Este punto de parada antes de comenzar a diseñar/codificar permite que el cliente y todo el equipo formen parte del proyecto como uno solo, no como varias partes.</p>
+
+<p>Por su parte, <strong>el cliente es capaz de exponer sus ideas y con ayuda del equipo desarrollador, exponer y validar estas como prototipo</strong> con el fin de ahorrar tiempo en el futuro y que ambas partes queden satisfechas con el producto final. Quiero destacar la importancia del equipo en esta parte, pues como se dijo, <strong>un cliente no tiene que saber qué es un prototipo</strong>, somos nosotros los que debemos de enseñarle que esta es la mejor manera ganar tiempo e integrarse en el proyecto como uno más.</p>
+
+<p>Esto derivó en una charla entre las experiencias personales de cada uno en referencia a los clientes. Sabemos que no siempre están dispuestos a formar parte de una manera tan directa, pero como concluyeron los componentes de 47 Degrees: si un cliente está realmente interesado en desarrollar su aplicación y tú le ofreces la posibilidad de acercarse, este querrá hacerlo.</p>
+
+<p>Tras el debate entre cliente y proyecto pasamos a las herramientas para la realización de sketchs y wireframes. Destacaron aplicaciones como <a href="http://www.bohemiancoding.com/sketch/" title="Sketch">Sketch</a> y <a href="https://popapp.in/" title="Prototypin on paper">POP</a>. Estas herramientas se complementan pues con sketch podemos realizar wireframes sencillos o detallados y con POP los hacemos navegables como si fueran aplicaciones móviles. <strong>Son dos herramientas muy poderosas pues combinadas nos hacen tener una visión muy real de como será la aplicación en futuro.</strong></p>
+
+<h1 id="findelamanteca">Fin de la manteca</h1>
+
+<p>Entre Gin tonics  y comentarios acabamos con la manteca, pero por supuesto con ganas de más. <strong>Personalmente creo que es un gran evento</strong>, pues como he comentado, UX une a todos en un mismo objetivo y en las charlas tenemos experiencias de todos los gustos y colores.</p>
+
+<p>Si a esto unimos buena gente, una mesa de ping pong y Gin tonics de por medio, como resultado tenemos tres horas de convivencia y aprendizaje que no cambio por nada. <strong>Os animo a todos a entrar en estos grupos pues una vez que vas a uno, cada semana que puedas sacar algo de tiempo tendrás otro a donde ir.</strong></p>
+
+<p>Sin más dejo por aquí unos enlaces de interés sobre el evento y una comunidad de facebook y me quedo a la espera de enlazar a este artículo las diapositivas de la charla. Cualquier error en el texto o idea que haya escrito mal o se me haya pasado, no dudéis en avisar ;)</p>
+
+<ul>
+<li>GinAndUX en <a href="https://twitter.com/GinAndUx" title="GinAndUX en twitter">twitter</a> y en <a href="http://www.meetup.com/Gin-Ux/" title="Meetup de Gin&amp;UX">meetup</a></li>
+<li><a href="https://www.facebook.com/groups/uxers.es/" title="Grupo de UXers en facebook">UXers</a></li>
+</ul>]]></content:encoded></item></channel></rss>

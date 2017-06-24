@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="UX, Android, RoR... Cualquier vestigio de lo que me voy encontrando día a día :)">
+<meta name="author" content="Laux">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@laux.es">
+<meta name="twitter:title" content="Posición de los botones">
+<meta name="twitter:description" content="Como continuación al artículo Ok y Cancelar no es suficiente, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones. Big Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda">
+<meta name="twitter:creator" content="Ángel M Miguel">
+<meta name="twitter:image:src" content="">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laux">
+<meta property="og:description" content="Como continuación al artículo Ok y Cancelar no es suficiente, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones. Big Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="Laux">
+
+<link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/screen.css%3F2%3Fv=b7a504fe2e.css" />
+<link rel="stylesheet" href="../assets/css/zenburn.css%3Fv=b7a504fe2e.css">
+<script src="../assets/js/highlight.pack.js%3Fv=b7a504fe2e"></script>
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/apple-touch-icon-57x57.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/apple-touch-icon-114x114.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/apple-touch-icon-72x72.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/apple-touch-icon-144x144.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/apple-touch-icon-60x60.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/apple-touch-icon-120x120.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/apple-touch-icon-76x76.png%3Fv=b7a504fe2e" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/apple-touch-icon-152x152.png%3Fv=b7a504fe2e" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-196x196.png%3Fv=b7a504fe2e" sizes="196x196" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-96x96.png%3Fv=b7a504fe2e" sizes="96x96" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-32x32.png%3Fv=b7a504fe2e" sizes="32x32" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-16x16.png%3Fv=b7a504fe2e" sizes="16x16" />
+<link rel="icon" type="image/png" href="../assets/img/favicon-128.png%3Fv=b7a504fe2e" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png?v=b7a504fe2e" />
+<meta name="msapplication-square70x70logo" content="/assets/img/mstile-70x70.png?v=b7a504fe2e" />
+<meta name="msapplication-square150x150logo" content="/assets/img/mstile-150x150.png?v=b7a504fe2e" />
+<meta name="msapplication-wide310x150logo" content="/assets/img/mstile-310x150.png?v=b7a504fe2e" />
+<meta name="msapplication-square310x310logo" content="/assets/img/mstile-310x310.png?v=b7a504fe2e" />
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<title>Posición de los botones | Laux</title>
+
+<link rel="canonical" href="index.html" />
+    <meta name="referrer" content="origin" />
+
+    <meta property="og:site_name" content="Laux" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Posición de los botones" />
+    <meta property="og:description" content="Como continuación al artículo Ok y Cancelar no es suficiente, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones. Big Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda" />
+    <meta property="og:url" content="http://laux.es/posicion-botones/" />
+    <meta property="article:published_time" content="2014-11-30T17:41:39.766Z" />
+    <meta property="article:modified_time" content="2014-11-30T21:19:08.639Z" />
+    <meta property="article:tag" content="UX" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Posición de los botones" />
+    <meta name="twitter:description" content="Como continuación al artículo Ok y Cancelar no es suficiente, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones. Big Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda" />
+    <meta name="twitter:url" content="http://laux.es/posicion-botones/" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Laux",
+    "author": {
+        "@type": "Person",
+        "name": "Ángel M Miguel",
+        "image": "//www.gravatar.com/avatar/73f55f92af57327a909da02fd88ac4d0?d=404&s=250",
+        "url": "http://laux.es/author/angel-m-miguel/"
+    },
+    "headline": "Posición de los botones",
+    "url": "http://laux.es/posicion-botones/",
+    "datePublished": "2014-11-30T17:41:39.766Z",
+    "dateModified": "2014-11-30T21:19:08.639Z",
+    "keywords": "UX",
+    "description": "Como continuación al artículo Ok y Cancelar no es suficiente, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones. Big Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7" />
+    <link rel="alternate" type="application/rss+xml" title="Laux" href="../rss/" />
+</head>
+
+<body class="post-template tag-ux">
+<div class="wrapper">
+
+<nav class="nav fixed">
+    <a style="border:none;" id="logo" href="../"><h1>Laux</h1></a>
+    <ul class="nav-primary">
+        <li><a href="../">Home</a></li>
+        <li><a class="ux-link" href="../tag/ux">UX</a></li>
+        <li><a class="ror-link" href="../tag/ruby">Ruby</a></li>
+        <li><a class="android-link" href="../tag/android">Android</a></li>
+        <li><a class="git-link" href="../tag/git">Git</a></li>
+        <li><a href="../about">Sobre mí</a></li>
+    </ul>
+</nav>
+
+
+<article class="art simple post tag-ux">
+
+    <header class="art-header">
+        <div class="art-header-inner">
+            <h2 class="art-title">Posición de los botones</h2>
+            <time class="art-time">30 - 11 - 2014</time>
+            <p class="art-subtitle"></p>
+        </div>
+    </header>
+
+    <div class="art-body">
+        <div class="art-body-inner">
+
+            <p>Como continuación al artículo <a href="../ok-y-cancelar-no-es-suficiente/">Ok y Cancelar no es suficiente</a>, dónde se hablaba sobre el contenido de los botónes en cuadros de diálogos y formularios, en este vamos a tratar sobre el posicionamiento de dichos botones.</p>
+
+<h1 id="big">Big</h1>
+
+<p>Generalmente, las personas que utilizan nuestras aplicaciones están acostumbradas a leer de izquierda a derecha. Mientras rellenamos los datos de un formulario o leemos un cuadro de diálogo, las líneas se van sucediendo, extrayendo de ellas el contenido relevante.</p>
+
+<p>En un estudio realizado por <a href="https://twitter.com/lukew">Luke Wroblewski</a>, 23 personas realizaron la tarea de completar un formulario y enviarlo. Cada formulario tenía una disposición y morfología distinta de botones de "enviar" y "cancelar". </p>
+
+<p>Como conclusión, dada la alineación del texto y la dirección de lectura de las personas que realizaron el estudio, los diseños más eficientes eran los que situaban los botones a la izquierda del formulario. Los diseños que situaban los botones a la derecha no eran tan eficientes en visualización, pero también tuvieron un 100% de éxito en el envío.</p>
+
+<p><img src="../content/images/2014/Nov/Bowser-sketch.jpg" alt="Cuadro de diálogo con los botones alineados a la izquierda" /></p>
+
+<p class="img-caption">Cuadro de diálogo con los botones alineados a la izquierda</p>
+
+<p>Si queréis ampliar más, os dejo el enlace al estudio: <a href="http://www.lukew.com/ff/entry.asp?571">Primary &amp; Secondary Actions in Web Forms</a>.</p>
+
+<h1 id="small">Small</h1>
+
+<p>En el caso de las pantallas de móviles, tendemos a coger el móvil con una sola mano y usamos el pulgar para navegar. En este caso, la zona de confort (zona azul del dibujo) para pulsar con nuestro pulgar se reduce, por lo que si algún elemento se sale de ese límite nos obligará a coger el móvil con la otra mano o a estirar el dedo tapando el contenido.</p>
+
+<p><em>(Quiero remarcar que este esquema está pensado para personas diestras o zurdos que utilicen el móvil con la mano derecha)</em></p>
+
+<p><img src="../content/images/2014/Nov/zonaconfort.png" alt="Zona de confort de pulsación con el pulgar" /></p>
+
+<p class="img-caption">Zona de confort de pulsación con el pulgar</p>
+
+<p>Además, debido a la anchura de la pantalla, podemos captar toda la información de una línea en un solo vistazo, por lo que cambiar la posición de los botones no supone una ruptura en nuestro flujo de lectura. </p>
+
+<p>Dadas estas condiciones, la opción más óptima en móviles es situar los botones a la derecha, ya que entrarían dentro de la zona de pulsación del pulgar.</p>
+
+<p><img src="../content/images/2014/Nov/modal.png" alt="Botones de acción dentro de la zona de pulsación del pulgar" /></p>
+
+<p class="img-caption">Botones de acción dentro de la zona de pulsación del pulgar</p>
+
+<h1 id="eficiencia">Eficiencia</h1>
+
+<p>Según el estudio de <a href="https://twitter.com/lukew">Luke</a> las personas solo tuvieron problemas a la hora de lidiar con botónes separados e iguales, por lo que si descartamos esa pequeña mejora de eficiencia, mientras distingamos ambos botones y los coloquemos juntos, para un diseño web será más que suficiente.</p>
+
+<p>Os dejo otra referencia más, por si os animáis a leerla ;)</p>
+
+<ul>
+<li><a href="http://ux.stackexchange.com/questions/8569/submit-buttons-on-the-left-or-the-right">Submit Buttons on the Left or the Right?</a></li>
+</ul>
+            <div class="art-tags">
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+<footer class="footer">
+    <div class="back-to-top"><a href="">Ir arriba</a></div>
+    <!-- <div class="footer-nav"><p></p></div> -->
+    <div class="psi">&Psi;</div>
+    <aside class="offsite-links">
+        <a class="twitter-link" href="https://twitter.com/laux_es">Twitter</a> /
+        <a class="github-link" href="https://github.com/Angelmmiguel/">Github</a> /
+    		<a class="linkedin-link" href="https://laux.es/posicion-botones/es.linkedin.com/pub/ángel-maría-de-miguel-meana/60/974/9b6/">Linkedin</a> /
+        <a class="rss-link" href="../rss.1">RSS</a>
+
+    </aside>
+</footer>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/fittext.js%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/app.js%3F2%3Fv=b7a504fe2e"></script>
+<script type="text/javascript" src="../assets/js/respond.min.js%3Fv=b7a504fe2e"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47913999-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+    (function(f,b){
+        var c;
+        f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+        f._hjSettings={hjid:46232, hjsv:4};
+        c=b.createElement("script");c.async=1;
+        c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
+        b.getElementsByTagName("head")[0].appendChild(c);
+    })(window,document);
+</script>
+<!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+
+    addTags('<a href="../tag/ux/">UX</a>');
+
+  </script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
